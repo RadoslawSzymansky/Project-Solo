@@ -1,0 +1,45 @@
+{
+    "name": "projekt_bs4_sass_npm",
+    "version": "1.0.1",
+    "description": "Just to check",
+    "main": "index.js",
+    "scripts": {
+        "init-list": "npm install && npm-run-all init:dirs init:files init:gitignore",
+        "sass": "node-sass --output-style expanded --source-map true -o css sass",
+        "server": "node_modules/.bin/browser-sync start --server --files 'css/*.css' '*.html'",
+        "build:clearcss": "rm -rf css/*.css && touch css/style.css",
+        "build:prefix": "postcss css/style.css --use=autoprefixer --map=false --output=css/style.css",
+        "build:testhtml": "nu-html-checker *.html",
+        "build:scss": "node-sass sass/style.scss -o css",
+        "init:install": "npm install",
+        "init:dirs": "mkdir -p sass css vendor images js",
+        "init:files": "touch README.md index.html sass/style.scss js/script.js",
+        "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
+        "watch:browsersync": "node_modules/.bin/browser-sync start --server --files 'css/*.css' '*.html'",
+        "watch:sassprefixer": "onchange -d 100 sass/components/*.scss -- npm-run-all sass build:prefix",
+        "build": "npm-run-all  build:*",
+        "init": "npm install && npm-run-all init:*",
+        "watch": "npm run build && npm-run-all -p watch:*"
+    },
+    "author": "Radek",
+    "license": "UNLICENSED",
+    "dependencies": {},
+    "devDependencies": {
+        "autoprefixer": "^9.4.8",
+        "browser-sync": "^2.26.3",
+        "globstar": "^1.0.0",
+        "node-sass": "^4.11.0",
+        "npm-run-all": "^4.1.5",
+        "nu-html-checker": "^0.1.0",
+        "onchange": "^5.2.0",
+        "postcss-cli": "^6.1.1",
+        "rimraf": "^2.6.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "add"
+    },
+    "browserslist": [
+        "last 2 versions"
+    ]
+}

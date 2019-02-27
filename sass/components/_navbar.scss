@@ -1,0 +1,88 @@
+@media (min-width: 992px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        height: 60px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: #fff;
+        color: $grey-dark;
+        border-bottom: 1px solid;
+
+        z-index: 1;
+        .wallet {
+            font-size: 20px;
+            list-style: none;
+        }
+
+
+        li,
+        i,
+        .user {
+            cursor: pointer;
+
+        }
+
+        [class*=icon] {
+            padding: 5px 20px;
+            position: relative;
+            top: 5px;
+            font-size: 20px;
+
+        }
+
+        p,
+        .wallet {
+            border-right: 1px solid;
+            border-left: 1px solid;
+            line-height: 60px;
+        }
+
+        p {
+            padding-right: 20px;
+        }
+
+        .user {
+            color: $blue;
+
+            i {
+                color: $grey-dark
+            }
+        }
+
+    }
+}
+
+// tu zaczac jutro i media na sidebar zeby byl static i sie chowal!
+@media(max-width: 991px) {
+    .navbar {
+        width: 16.66%;
+        color: $grey-light;
+
+        li {
+            padding: 10px 0;
+            cursor: pointer;
+        }
+
+
+        i {
+            color: rgb(250, 90, 90);
+            padding: 0px 10px;
+            line-height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+    }
+
+    .content {
+        margin-left: 45px;
+
+    }
+
+}

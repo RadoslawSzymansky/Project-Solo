@@ -1,0 +1,181 @@
+.menu {
+    background-color: $sidebar-color;
+
+}
+
+.sidebar {
+    min-height: 100vh;
+    color: #999999;
+    background-color: $sidebar-color;
+    font-weight: 300;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    max-width: 213px;
+    z-index: 2;
+
+    .logo {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .hamburger {
+            transform: rotate(90deg);
+            cursor: pointer;
+        }
+
+        span {
+            width: 5px;
+            height: 25px;
+            display: block;
+            background-color: $grey-light;
+            display: inline-block;
+        }
+
+
+    }
+
+    >ul {
+        line-height: 42px;
+        list-style: none;
+        padding-bottom: 30px;
+        border-bottom: 1px solid;
+        margin-bottom: 25px;
+    }
+
+    li {
+        padding-left: 15px;
+        transition: 0.1s;
+
+        [class*=icon-] {
+            padding-right: 15px
+        }
+
+        a {
+            color: #999999;
+            text-decoration: none;
+            display: block;
+        }
+
+        i {
+            position: relative;
+            top: 3px;
+        }
+
+        &:hover {
+            background-color: #282828
+        }
+
+        &:hover i {
+            color: #fff;
+        }
+
+        &.active {
+            padding-left: 15px;
+            position: relative;
+            background-color: #282828;
+
+            a {
+                color: #fff
+            }
+
+            &::before {
+                @include pseudo;
+                background-color: $orange;
+                height: 100%;
+                width: 2px;
+                left: 0;
+            }
+        }
+    }
+
+    .manager {
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        p {
+            width: 100%;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        span {
+            color: $blue;
+            padding-left: 5px;
+        }
+
+    }
+}
+
+.content {
+    margin-left: 213px;
+
+    [class*="col-"] {
+        float: left;
+        min-height: 1px;
+        padding: 10px;
+    }
+
+    h1 {
+        padding: 10px;
+        margin: 5px;
+    }
+
+}
+
+@media(max-width: 991px) {
+    .menu {
+        min-height: 100vh;
+
+    }
+
+    .sidebar {
+        position: static;
+        height: auto;
+        min-height: 100px;
+
+
+    }
+
+    .menu.dezactive {
+        position: fixed;
+        // left: -110px;
+        top: 0;
+        width: 45px;
+        overflow: hidden;
+
+        .hamburger {
+            position: relative;
+            left: -2px
+        }
+
+
+
+
+        li span,
+        .manager span,
+        .manager p,
+        .navbar {
+            display: none;
+        }
+
+        .manager img {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            position: relative;
+            width: 30px;
+            left: -8px;
+
+        }
+
+        .logo img {
+            display: none;
+        }
+
+
+    }
+}
