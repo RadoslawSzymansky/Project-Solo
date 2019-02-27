@@ -14,7 +14,8 @@ body {
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
     padding-top: 60px;
-
+    min-height: 200vh;
+    background-color: #f4f4f1;
 }
 
 // GRID //
@@ -50,19 +51,11 @@ body {
 
 }
 
-// CONTAINER 
-.container {
-    max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #f4f4f1;
-    min-height: 100vh;
-    border-right: 1px solid $grey-dark;
-
+.content {
+    transition: .5s;
+    margin-left: 260px;
 }
 
-@media(max-width: 991px) {
-    body {
-        padding: 0;
-    }
+.content.full {
+    margin-left: 45px;
 }

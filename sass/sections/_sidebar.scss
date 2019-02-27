@@ -1,0 +1,154 @@
+// Main conteiner of sidebar and navbar//
+.menu {
+    width: 260px;
+    background-color: $sidebar-color;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transition: .5s;
+    overflow: hidden;
+}
+
+//  Sidebar
+.sidebar {
+    color: #999999;
+    background-color: $sidebar-color;
+    font-weight: 300;
+    font-size: 14px;
+    // Logo //
+
+    .logo {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .hamburger {
+            transform: rotate(90deg);
+            cursor: pointer;
+            transition: .5s;
+
+            &:hover span {
+                background-color: #fff;
+
+            }
+        }
+
+        span {
+            width: 5px;
+            height: 25px;
+            background-color: $grey-light;
+            display: inline-block;
+        }
+    }
+
+    // left side - sites navigation
+    .navigation {
+        line-height: 42px;
+        list-style: none;
+        padding-bottom: 30px;
+        border-bottom: 1px solid;
+        margin-bottom: 25px;
+
+        li {
+            padding-left: 15px;
+            transition: 0.1s;
+
+            [class*=icon-] {
+                padding-right: 15px;
+            }
+
+            a {
+                color: #999999;
+                text-decoration: none;
+                display: block;
+            }
+
+            i {
+                position: relative;
+                top: 3px;
+            }
+
+            &:hover {
+                background-color: #282828
+            }
+
+            &:hover i {
+                color: #fff;
+            }
+
+            // active li //
+            &.active {
+                padding-left: 15px;
+                position: relative;
+                background-color: #282828;
+
+                a {
+                    color: #fff
+                }
+
+                &::before {
+                    display: block;
+                    content: "";
+                    position: absolute;
+                    background-color: $orange;
+                    height: 100%;
+                    width: 2px;
+                    left: 2px;
+                }
+            }
+        }
+    }
+
+    // manager
+    .manager {
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #282828;
+        }
+
+        p {
+            width: 100%;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        span {
+            color: $blue;
+            padding-left: 15px;
+        }
+    }
+}
+
+// Styles when menu is disactivated //
+
+.menu.dezactive {
+    position: fixed;
+    width: 45px;
+
+    .hamburger {
+        position: relative;
+        left: -2px
+    }
+
+    .sidebar li span,
+    .manager span,
+    .manager p,
+    .logo img {
+        display: none;
+    }
+
+    .manager img {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        left: -8px;
+    }
+}
