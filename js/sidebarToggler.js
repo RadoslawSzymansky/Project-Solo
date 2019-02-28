@@ -11,18 +11,12 @@ const toggleMenu = () => {
     MENU.classList.toggle('disactive');
     CONTENT.classList.toggle('menuactive');
     BURGER.classList.toggle('menuHidden')
-    console.log('sm')
 }
 
 const toggleDropDown = (e) => {
-    console.log('aha')
     SETTINGS.dropActive = !SETTINGS.dropActive;
     e.target.parentNode.parentNode.classList.toggle('dropActive')
-    if (SETTINGS.dropActive) {
-        e.target.className = "icon-arrow-up dropDown";
-    } else {
-        e.target.className = "icon-arrow-down dropDown"
-    }
+    e.target.className = SETTINGS.dropActive ? "icon-arrow-up dropDown" : "icon-arrow-down dropDown";
 }
 
 BURGER.addEventListener('click', toggleMenu);
@@ -33,5 +27,4 @@ if (document.body.offsetWidth < 992) {
     MENU.classList.add('disactive');
     CONTENT.classList.remove('menuactive');
     BURGER.classList.add('menuHidden')
-    console.log('zmiana')
 }

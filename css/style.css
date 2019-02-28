@@ -357,7 +357,6 @@ body {
   width: 100vw;
   overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
-  min-height: 200vh;
   background-color: #f4f4f1;
 }
 
@@ -431,8 +430,8 @@ body {
   overflow-y: auto;
   background-color: #191919;
   color: #999999;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: .3s linear;
+  transition: .3s linear;
 }
 
 .menu.disactive {
@@ -441,8 +440,8 @@ body {
 
 .content {
   margin-left: 30px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .content.menuactive {
@@ -500,13 +499,31 @@ body {
 }
 
 .sidebar .logo .hamburger.menuHidden {
-  left: 2px;
-  top: 2px;
+  left: 4px;
+  top: 4px;
   position: fixed;
 }
 
 .sidebar .logo .hamburger.menuHidden span {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(241, 77, 77, 0.5);
+}
+
+.sidebar .logo .hamburger.menuHidden:hover span {
+  background-color: #777;
+}
+
+.sidebar .logo .hamburger.menuHidden:after {
+  display: block;
+  content: "";
+  width: 100px;
+  height: 100px;
+  background-color: rgba(20, 20, 0, 0.2);
+  position: fixed;
+  top: -14px;
+  left: -60px;
+  z-index: -1;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .sidebar .logo span {
@@ -573,7 +590,7 @@ body {
 }
 
 .sidebar .manager {
-  padding: 0 15px;
+  padding: 4px 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -618,6 +635,9 @@ body {
   }
   .sidebar .logo > .hamburger.menuHidden span {
     background-color: #ddd;
+  }
+  .sidebar .logo > .hamburger.menuHidden:after {
+    display: none;
   }
   .menu.disactive {
     position: fixed;
