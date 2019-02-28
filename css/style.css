@@ -1,6 +1,4 @@
 /* Colors */
-/* Font sizes */
-/* Fonts */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -356,11 +354,9 @@ html {
 }
 
 body {
-  font-family: "Lato", sans-serif;
   width: 100vw;
   overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
-  padding-top: 60px;
   min-height: 200vh;
   background-color: #f4f4f1;
 }
@@ -426,87 +422,59 @@ body {
   width: 99.996%;
 }
 
-/* // SETTING MARGIN // */
-.col-offset-0 {
-  margin-left: 0%;
+.menu {
+  width: 180px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  background-color: #191919;
+  color: #999999;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
-.col-offset-1 {
-  margin-left: 8.333%;
-}
-
-.col-offset-2 {
-  margin-left: 16.666%;
-}
-
-.col-offset-3 {
-  margin-left: 24.999%;
-}
-
-.col-offset-4 {
-  margin-left: 33.332%;
-}
-
-.col-offset-5 {
-  margin-left: 41.665%;
-}
-
-.col-offset-6 {
-  margin-left: 49.998%;
-}
-
-.col-offset-7 {
-  margin-left: 58.331%;
-}
-
-.col-offset-8 {
-  margin-left: 66.664%;
-}
-
-.col-offset-9 {
-  margin-left: 74.997%;
-}
-
-.col-offset-10 {
-  margin-left: 83.33%;
-}
-
-.col-offset-11 {
-  margin-left: 91.663%;
+.menu.disactive {
+  left: -100%;
 }
 
 .content {
-  -webkit-transition: .5s;
-  transition: .5s;
-  margin-left: 260px;
+  margin-left: 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.content.full {
-  margin-left: 45px;
+.content.menuactive {
+  margin-left: 180px;
 }
 
-.menu {
-  width: 260px;
-  background-color: #191919;
-  min-height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  -webkit-transition: .5s;
-  transition: .5s;
-  overflow: hidden;
+@media (min-width: 992px) {
+  body {
+    padding-top: 60px;
+  }
+  .menu {
+    width: 260px;
+    overflow: hidden;
+  }
+  .content {
+    margin-left: 45px;
+  }
+  .content.menuactive {
+    margin-left: 260px;
+  }
+}
+
+[class*=icon] {
+  cursor: pointer;
 }
 
 .sidebar {
-  color: #999999;
-  background-color: #191919;
-  font-weight: 300;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .sidebar .logo {
-  height: 60px;
+  height: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -516,6 +484,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
 }
 
 .sidebar .logo .hamburger {
@@ -530,19 +499,29 @@ body {
   background-color: #fff;
 }
 
+.sidebar .logo .hamburger.menuHidden {
+  left: 2px;
+  top: 2px;
+  position: fixed;
+}
+
+.sidebar .logo .hamburger.menuHidden span {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .sidebar .logo span {
   width: 5px;
   height: 25px;
-  background-color: #bababa;
   display: inline-block;
+  background-color: #bababa;
 }
 
 .sidebar .navigation {
-  line-height: 42px;
-  list-style: none;
-  padding-bottom: 30px;
+  line-height: 40px;
+  padding-bottom: 5px;
   border-bottom: 1px solid;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
+  list-style: none;
 }
 
 .sidebar .navigation li {
@@ -556,9 +535,9 @@ body {
 }
 
 .sidebar .navigation li a {
+  display: block;
   color: #999999;
   text-decoration: none;
-  display: block;
 }
 
 .sidebar .navigation li i {
@@ -575,7 +554,6 @@ body {
 }
 
 .sidebar .navigation li.active {
-  padding-left: 15px;
   position: relative;
   background-color: #282828;
 }
@@ -588,14 +566,14 @@ body {
   display: block;
   content: "";
   position: absolute;
-  background-color: #ffa200;
   height: 100%;
   width: 2px;
-  left: 2px;
+  left: 1px;
+  background-color: #ffa200;
 }
 
 .sidebar .manager {
-  padding: 15px;
+  padding: 0 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -622,49 +600,50 @@ body {
   padding-left: 15px;
 }
 
-.menu.dezactive {
-  position: fixed;
-  width: 45px;
-}
-
-.menu.dezactive .hamburger {
-  position: relative;
-  left: -2px;
-}
-
-.menu.dezactive .sidebar li span,
-.menu.dezactive .manager span,
-.menu.dezactive .manager p,
-.menu.dezactive .logo img {
-  display: none;
-}
-
-.menu.dezactive .manager img {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  left: -8px;
+@media (min-width: 992px) {
+  .sidebar {
+    font-size: 14px;
+  }
+  .sidebar .logo {
+    background-color: #191919;
+    height: 60px;
+  }
+  .sidebar .logo > .hamburger.menuHidden {
+    left: -3px;
+    top: -2px;
+    position: relative;
+  }
+  .sidebar .logo > .hamburger.menuHidden:hover span {
+    background-color: #fff;
+  }
+  .sidebar .logo > .hamburger.menuHidden span {
+    background-color: #ddd;
+  }
+  .menu.disactive {
+    position: fixed;
+    width: 45px;
+    left: 0;
+  }
+  .menu.disactive .sidebar li span,
+  .menu.disactive .manager span,
+  .menu.disactive .manager p,
+  .menu.disactive .logo img {
+    display: none;
+  }
+  .menu.disactive .manager img {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    left: -8px;
+  }
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  background-color: #fff;
-  color: #979797;
-  border-bottom: 1px solid;
-  z-index: -1;
+  z-index: -2;
 }
 
 .navbar .wallet {
-  font-size: 20px;
+  font-size: 12px;
   list-style: none;
 }
 
@@ -672,13 +651,13 @@ body {
   display: none;
 }
 
-.navbar .wallet.dropActive {
-  border-bottom: 1px solid #bababa;
-  min-height: 310px;
+.navbar .wallet .icon-arrow-down,
+.navbar .wallet .icon-arrow-up {
+  padding-left: 10px;
 }
 
-.navbar .wallet.dropActive li {
-  background-color: #f5f5f2;
+.navbar .wallet.dropActive {
+  border-bottom: 1px solid #bababa;
 }
 
 .navbar .wallet.dropActive li:not(:first-child) {
@@ -689,114 +668,107 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 15px;
-  font-size: 12px;
 }
 
 .navbar .wallet.dropActive li .price {
-  color: #000;
-}
-
-.navbar > [class*=icon],
-.navbar .user {
-  -ms-flex-item-align: center;
-      align-self: center;
-}
-
-.navbar li i,
-.navbar i,
-.navbar .user i {
-  cursor: pointer;
+  color: #fff;
 }
 
 .navbar li i:hover,
 .navbar i:hover,
 .navbar .user i:hover {
-  color: #000;
+  color: #fff;
 }
 
 .navbar [class*=icon] {
-  padding: 5px 20px;
   position: relative;
-  top: 5px;
-  font-size: 20px;
+  top: 3px;
+  padding: 0px 15px;
+  font-size: 12px;
+  line-height: 40px;
 }
 
 .navbar .user,
 .navbar .wallet {
-  border-right: 1px solid;
-  border-left: 1px solid;
-  line-height: 60px;
+  border-right: none;
+  border-left: none;
+  line-height: 40px;
 }
 
 .navbar .user {
   color: #56819f;
-  padding-right: 20px;
+  font-size: 12px;
 }
 
 .navbar .user i {
   color: #979797;
 }
 
-@media (max-width: 991px) {
+.navbar .icon-notification::after {
+  content: "Notification";
+  font-family: 'Roboto', sans-serif;
+  display: inline;
+  margin-left: 15px;
+}
+
+@media (min-width: 992px) {
   .navbar {
-    position: static;
-    height: auto;
-    display: block;
-    background-color: #191919;
-    color: #979797;
-    border: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    background-color: #fff;
+    border-bottom: 1px solid;
   }
   .navbar .wallet {
-    font-size: 14px;
+    font-size: 20px;
   }
   .navbar .wallet.dropActive {
-    border-bottom: none;
+    border-bottom: 1px solid #bababa;
+    min-height: 200px;
   }
   .navbar .wallet.dropActive li {
-    background-color: #191919;
+    background-color: #f5f5f2;
   }
   .navbar .wallet.dropActive li:not(:first-child) {
-    line-height: 25px;
-    padding: 0 20px;
+    font-size: 12px;
+    line-height: 30px;
   }
   .navbar .wallet.dropActive li .price {
-    color: #fff;
+    color: #000;
+  }
+  .navbar > [class*=icon],
+  .navbar .user {
+    -ms-flex-item-align: center;
+        align-self: center;
   }
   .navbar li i:hover,
   .navbar i:hover,
   .navbar .user i:hover {
-    color: #fff;
+    color: #000;
   }
   .navbar [class*=icon] {
-    padding: 0px 15px;
-    top: 1px;
-    font-size: 14px;
-    line-height: 40px;
+    padding: 5px 20px;
+    top: 5px;
+    font-size: 20px;
   }
   .navbar .user,
   .navbar .wallet {
-    border-right: none;
-    border-left: none;
-    line-height: 40px;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    line-height: 60px;
   }
   .navbar .user {
+    padding-right: 20px;
     font-size: 14px;
   }
-}
-
-@media (max-width: 991px) {
-  body {
-    padding: 0;
-  }
-  .menu {
-    min-height: 100vh;
-  }
-  .sidebar {
-    position: static;
-    height: auto;
-    min-height: 100px;
-  }
-  .menu.dezactive .navbar {
+  .navbar .icon-notification::after {
     display: none;
   }
 }

@@ -8,8 +8,10 @@ const SETTINGS = {
 }
 
 const toggleMenu = () => {
-    MENU.classList.toggle('dezactive');
-    CONTENT.classList.toggle('full')
+    MENU.classList.toggle('disactive');
+    CONTENT.classList.toggle('menuactive');
+    BURGER.classList.toggle('menuHidden')
+    console.log('sm')
 }
 
 const toggleDropDown = (e) => {
@@ -22,15 +24,14 @@ const toggleDropDown = (e) => {
         e.target.className = "icon-arrow-down dropDown"
     }
 }
-// const hideMenu = () => {
 
-//     if (document.body.offsetWidth < 1600) {
-//         console.log('jest')
-//         MENU.classList.remove('dezactive');
-//         CONTENT.classList.remove('full')
-//     }
-// }
-// events
 BURGER.addEventListener('click', toggleMenu);
 DROP_DOWN.addEventListener('click', toggleDropDown)
-// window.addEventListener('resize', hideMenu)
+//
+// turn off menu if it smaller than 992px width device
+if (document.body.offsetWidth < 992) {
+    MENU.classList.add('disactive');
+    CONTENT.classList.remove('menuactive');
+    BURGER.classList.add('menuHidden')
+    console.log('zmiana')
+}

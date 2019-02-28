@@ -1,29 +1,72 @@
-// Main conteiner of sidebar and navbar//
+//  ------- MOBILE FIRST ------
+
+// Menu full styles
 .menu {
-    width: 260px;
-    background-color: $sidebar-color;
-    min-height: 100vh;
+    width: 180px;
+    height: 100vh;
     position: fixed;
-    top: 0;
     left: 0;
-    z-index: 2;
+    top: 0;
+    overflow-y: auto;
+    background-color: $sidebar-color;
+    color: #999999;
     transition: .5s;
-    overflow: hidden;
+    // z-index: 0;
 }
 
-//  Sidebar
-.sidebar {
-    color: #999999;
-    background-color: $sidebar-color;
-    font-weight: 300;
-    font-size: 14px;
-    // Logo //
+// for not active menu on phones
+.menu.disactive {
+    left: -100%;
+}
 
+// content when menu is showed
+.content {
+    margin-left: 30px;
+    transition: 0.5s;
+}
+
+// change content when menu is hiding
+.content.menuactive {
+    margin-left: 180px;
+
+}
+
+@media (min-width:992px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .menu {
+        width: 260px;
+        overflow: hidden;
+    }
+
+    .content {
+        margin-left: 45px;
+    }
+
+    .content.menuactive {
+        margin-left: 260px;
+    }
+}
+
+[class*=icon] {
+    cursor: pointer;
+}
+
+//@side bar
+.sidebar {
+    font-size: 12px;
+    // z-index: -2;
+
+    // Logo //
     .logo {
-        height: 60px;
+
+        height: 45px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        position: relative;
 
         .hamburger {
             transform: rotate(90deg);
@@ -32,25 +75,34 @@
 
             &:hover span {
                 background-color: #fff;
+            }
 
+            &.menuHidden {
+                left: 2px;
+                top: 2px;
+                position: fixed;
+
+                span {
+                    background-color: rgba(0, 0, 0, 0.3);
+                }
             }
         }
 
         span {
             width: 5px;
             height: 25px;
-            background-color: $grey-light;
             display: inline-block;
+            background-color: $grey-light;
         }
     }
 
     // left side - sites navigation
     .navigation {
-        line-height: 42px;
-        list-style: none;
-        padding-bottom: 30px;
+        line-height: 40px;
+        padding-bottom: 5px;
         border-bottom: 1px solid;
-        margin-bottom: 25px;
+        margin-bottom: 10px;
+        list-style: none;
 
         li {
             padding-left: 15px;
@@ -61,9 +113,9 @@
             }
 
             a {
+                display: block;
                 color: #999999;
                 text-decoration: none;
-                display: block;
             }
 
             i {
@@ -81,7 +133,6 @@
 
             // active li //
             &.active {
-                padding-left: 15px;
                 position: relative;
                 background-color: #282828;
 
@@ -93,18 +144,18 @@
                     display: block;
                     content: "";
                     position: absolute;
-                    background-color: $orange;
                     height: 100%;
                     width: 2px;
-                    left: 2px;
+                    left: 1px;
+                    background-color: $orange;
                 }
             }
         }
     }
 
-    // manager
     .manager {
-        padding: 15px;
+
+        padding: 0 15px;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -127,28 +178,54 @@
     }
 }
 
-// Styles when menu is disactivated //
+// Large devices ( tables, desktops, 992px and up)
 
-.menu.dezactive {
-    position: fixed;
-    width: 45px;
+@media (min-width: 992px) {
+    .sidebar {
+        font-size: 14px;
 
-    .hamburger {
-        position: relative;
-        left: -2px
+        // z-index: -1;
+        .logo {
+            background-color: $sidebar-color;
+            height: 60px;
+        }
+
+        // Logo //
+        .logo>.hamburger {
+            &.menuHidden {
+                left: -3px;
+                top: -2px;
+                position: relative;
+
+                &:hover span {
+                    background-color: #fff;
+                }
+
+                span {
+                    background-color: #ddd;
+
+                }
+            }
+        }
     }
 
-    .sidebar li span,
-    .manager span,
-    .manager p,
-    .logo img {
-        display: none;
-    }
+    .menu.disactive {
+        position: fixed;
+        width: 45px;
+        left: 0;
 
-    .manager img {
-        position: relative;
-        width: 30px;
-        height: 30px;
-        left: -8px;
+        .sidebar li span,
+        .manager span,
+        .manager p,
+        .logo img {
+            display: none;
+        }
+
+        .manager img {
+            position: relative;
+            width: 25px;
+            height: 25px;
+            left: -8px;
+        }
     }
 }

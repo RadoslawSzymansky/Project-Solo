@@ -9,11 +9,9 @@ html {
 }
 
 body {
-    font-family: "Lato", sans-serif;
     width: 100vw;
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
-    padding-top: 60px;
     min-height: 200vh;
     background-color: #f4f4f1;
 }
@@ -39,23 +37,4 @@ body {
         width: 8.333% * $i;
     }
 
-}
-
-/* // SETTING MARGIN // */
-
-@for $i from 0 through 11 {
-
-    .col-offset-#{$i} {
-        margin-left: 8.333% * $i;
-    }
-
-}
-
-.content {
-    transition: .5s;
-    margin-left: 260px;
-}
-
-.content.full {
-    margin-left: 45px;
 }

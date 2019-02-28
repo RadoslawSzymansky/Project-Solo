@@ -1,141 +1,146 @@
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: flex-end;
-    background-color: #fff;
-    color: $grey-dark;
-    border-bottom: 1px solid;
-    z-index: -1;
+    z-index: -2;
 
-    // dropdown menu wallet
     .wallet {
-        font-size: 20px;
+        font-size: 12px;
         list-style: none;
 
         li:not(:first-child) {
             display: none;
         }
 
+        .icon-arrow-down,
+        .icon-arrow-up {
+            padding-left: 10px
+        }
+
         &.dropActive {
             border-bottom: 1px solid $grey-light;
-            min-height: 310px;
 
             li {
-                background-color: #f5f5f2;
 
                 &:not(:first-child) {
                     display: flex;
                     justify-content: space-between;
                     padding: 0 15px;
-                    font-size: 12px;
                 }
 
                 .price {
-                    color: #000
+                    color: #fff;
                 }
             }
         }
-    }
-
-    // alignself only at this, because when its on dropdown list its problem in firefox
-    >[class*=icon],
-    .user {
-        align-self: center;
-    }
-
-    li i,
-    i,
-    .user i {
-        cursor: pointer;
     }
 
     li i:hover,
     i:hover,
     .user i:hover {
-        color: #000;
+        color: #fff;
     }
 
     [class*=icon] {
-        padding: 5px 20px;
         position: relative;
-        top: 5px;
-        font-size: 20px;
-    }
+        top: 3px;
+        padding: 0px 15px;
+        font-size: 12px;
+        line-height: 40px;
 
+    }
 
     .user,
     .wallet {
-        border-right: 1px solid;
-        border-left: 1px solid;
-        line-height: 60px;
+        border-right: none;
+        border-left: none;
+        line-height: 40px;
     }
 
     .user {
         color: $blue;
-        padding-right: 20px;
+        font-size: 12px;
 
         i {
-            color: $grey-dark
+            color: $grey-dark;
         }
+    }
+
+    .icon-notification::after {
+        content: "Notification";
+        font-family: 'Roboto', sans-serif;
+        display: inline;
+        margin-left: 15px;
     }
 }
 
-@media(max-width: 991px) {
+// navbar on top fo tablets
+@media (min-width:992px) {
     .navbar {
-        position: static;
-        height: auto;
-        display: block;
-        background-color: $sidebar-color;
-        color: $grey-dark;
-        border: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: flex-end;
+        background-color: #fff;
+        border-bottom: 1px solid;
 
+        // dropdown menu wallet
         .wallet {
-
-            font-size: 14px;
+            font-size: 20px;
 
             &.dropActive {
-                border-bottom: none;
+                border-bottom: 1px solid $grey-light;
+                min-height: 200px;
 
                 li {
-                    background-color: $sidebar-color;
+                    background-color: #f5f5f2;
 
                     &:not(:first-child) {
-                        line-height: 25px;
-                        padding: 0 20px;
+                        font-size: 12px;
+                        line-height: 30px;
                     }
 
                     .price {
-                        color: #fff;
+                        color: #000
                     }
                 }
             }
         }
 
+        // alignself only at this, because when its on dropdown list its problem in firefox
+        >[class*=icon],
+        .user {
+            align-self: center;
+        }
+
+
+
         li i:hover,
         i:hover,
         .user i:hover {
-            color: #fff;
+            color: #000;
         }
 
         [class*=icon] {
-            padding: 0px 15px;
-            top: 1px;
-            font-size: 14px;
-            line-height: 40px;
+            padding: 5px 20px;
+            top: 5px;
+            font-size: 20px;
         }
 
         .user,
         .wallet {
-            border-right: none;
-            border-left: none;
-            line-height: 40px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            line-height: 60px;
         }
 
         .user {
+            padding-right: 20px;
             font-size: 14px;
+        }
+
+        .icon-notification::after {
+
+            display: none;
         }
     }
 }
