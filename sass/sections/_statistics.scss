@@ -1,0 +1,113 @@
+.statistics {
+    border: 1px solid $grey-light;
+    background-color: #fff;
+    margin-top: 25px;
+    color: $grey-light;
+    padding-bottom: 40px;
+
+    .title {
+        margin: 0;
+        color: #a6a6a6;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 42px;
+        text-transform: uppercase;
+        padding-left: 15px;
+
+    }
+
+    .date {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 0px;
+        border-bottom: 1px solid $grey-light;
+        border-top: 1px solid $grey-light;
+        margin-bottom: 20px;
+
+        .date-period {
+            margin-top: 10px;
+        }
+
+        .btn {
+            margin-top: 10px;
+            margin-left: 10px;
+            font-size: 12px;
+        }
+    }
+
+    .stats {
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 14px;
+
+        .desc {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            flex-wrap: wrap;
+            padding: 5px;
+        }
+
+        p {
+            padding: 5px 0
+        }
+
+        span.number {
+            color: #111;
+            font-weight: 300;
+        }
+
+        hr {
+            width: 100%;
+            color: $grey-light;
+            fill: $grey-light;
+            background-color: $grey-light;
+        }
+    }
+
+    .chart {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 5px;
+        margin-top: 30px;
+    }
+
+    .chartName {
+        color: $grey-light;
+        font-size: 16px;
+        line-height: 42px;
+    }
+
+    .legend {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        line-height: 50px;
+        padding: 20px 5px;
+    }
+}
+
+@media (min-width: 576px) {
+    .statistics {
+        .date {
+            padding: 40px 0px;
+
+            .btn {
+                margin-left: 20px;
+                display: block;
+            }
+        }
+
+        .stats {
+            .desc {
+                padding: 10px;
+                margin-bottom: 10px;
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
+    }
+}

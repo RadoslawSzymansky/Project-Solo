@@ -1,0 +1,56 @@
+.colortab {
+    color: $grey-light;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 30px;
+    background-color: #f3f3f1;
+    border-radius: 3px;
+    padding-left: 22px;
+    padding-right: 8px;
+    position: relative;
+
+
+    &::before {
+        display: block;
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: $orange-dark;
+        position: absolute;
+        top: 10px;
+        left: 5px;
+    }
+
+    &.blue {
+        &::before {
+            background-color: #80bfca;
+
+        }
+    }
+
+    &.green {
+        &::before {
+            background-color: #59b66d;
+
+        }
+    }
+
+    &.empty {
+        background-color: transparent;
+    }
+}
+
+@media (min-width: 577px) {
+    .colortab {
+        font-size: 16px;
+        padding-left: 35px;
+        padding-right: 20px;
+        line-height: 40px;
+
+        &::before {
+            top: 15px;
+            left: 12px;
+        }
+    }
+}

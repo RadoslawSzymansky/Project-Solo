@@ -1,0 +1,65 @@
+.btn {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 42px;
+    border-radius: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Roboto', 'sans-serif';
+    border: none;
+    background-color: $grey-light;
+    cursor: pointer;
+
+    &:hover {
+        background-color: grey;
+    }
+
+    &.btn-orange {
+        background-color: $orange-dark;
+
+        &:hover {
+            background-color: #cf7323;
+        }
+    }
+
+    &.btn-orange-light {
+        background-color: $orange;
+
+        &:hover {
+            background-color: $orange-dark;
+        }
+    }
+
+    &.btn-grey-dark {
+        background-color: $grey-dark;
+
+        &:hover {
+            background-color: rgb(75, 73, 73);
+        }
+    }
+
+    &.btn-disabled {
+        background-color: #e3e3e3;
+        cursor: auto;
+        position: relative;
+        padding-left: 40px;
+
+        &:hover {
+            background-color: #e3e3e3;
+        }
+
+        &:before {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            display: block;
+            content: "";
+            background-image: url(/images/links.svg);
+            background-repeat: no-repeat;
+            left: 10px;
+            top: 16px;
+        }
+    }
+
+}

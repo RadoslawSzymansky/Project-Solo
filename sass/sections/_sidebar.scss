@@ -1,55 +1,4 @@
-//  ------- MOBILE FIRST ------
-
-// Menu full styles
-.menu {
-    width: 180px;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    overflow-y: auto;
-    background-color: $sidebar-color;
-    color: #999999;
-    transition: .3s linear;
-    // z-index: 0;
-}
-
-// for not active menu on phones
-.menu.disactive {
-    left: -100%;
-}
-
-// content when menu is showed
-.content {
-    margin-left: 30px;
-    transition: 0.3s linear;
-}
-
-// change content when menu is hiding
-.content.menuactive {
-    margin-left: 180px;
-
-}
-
-@media (min-width:992px) {
-    body {
-        padding-top: 60px;
-    }
-
-    .menu {
-        width: 260px;
-        overflow: hidden;
-    }
-
-    .content {
-        margin-left: 45px;
-    }
-
-    .content.menuactive {
-        margin-left: 260px;
-    }
-}
-
+//  THE MAIN BEHAVOIUR STYLES OFF MENU ARE IN LAYOUT
 [class*=icon] {
     cursor: pointer;
 }
@@ -57,11 +6,8 @@
 //@side bar
 .sidebar {
     font-size: 12px;
-    // z-index: -2;
 
-    // Logo //
     .logo {
-
         height: 45px;
         display: flex;
         align-items: center;
@@ -83,7 +29,7 @@
                 position: fixed;
 
                 span {
-                    background-color: rgba(241, 77, 77, 0.5);
+                    background-color: $orange-dark;
                 }
 
                 &:hover span {
@@ -96,7 +42,6 @@
                     width: 100px;
                     height: 100px;
                     background-color: rgba(20, 20, 0, .2);
-                    // border-radius: 50%;
                     position: fixed;
                     top: -14px;
                     left: -60px;
@@ -172,7 +117,6 @@
     }
 
     .manager {
-
         padding: 4px 15px;
         display: flex;
         flex-wrap: wrap;
@@ -202,7 +146,6 @@
     .sidebar {
         font-size: 14px;
 
-        // z-index: -1;
         .logo {
             background-color: $sidebar-color;
             height: 60px;
@@ -221,12 +164,10 @@
 
                 span {
                     background-color: #ddd;
-
                 }
 
                 &:after {
                     display: none;
-
                 }
             }
         }

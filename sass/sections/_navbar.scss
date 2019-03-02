@@ -1,5 +1,6 @@
+//  NAVBAR
 .navbar {
-    z-index: -2;
+    z-index: -1;
 
     .wallet {
         font-size: 12px;
@@ -18,7 +19,6 @@
             border-bottom: 1px solid $grey-light;
 
             li {
-
                 &:not(:first-child) {
                     display: flex;
                     justify-content: space-between;
@@ -44,7 +44,6 @@
         padding: 0px 15px;
         font-size: 12px;
         line-height: 40px;
-
     }
 
     .user,
@@ -71,7 +70,7 @@
     }
 }
 
-// navbar on top fo tablets
+// navbar on top for large devices
 @media (min-width:992px) {
     .navbar {
         position: fixed;
@@ -88,11 +87,10 @@
             font-size: 20px;
 
             &.dropActive {
-                border-bottom: 1px solid $grey-light;
-                min-height: 200px;
-
                 li {
                     background-color: #f5f5f2;
+                    border-right: 1px solid;
+                    border-left: 1px solid;
 
                     &:not(:first-child) {
                         font-size: 12px;
@@ -101,6 +99,11 @@
 
                     .price {
                         color: #000
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px solid;
+                        padding-bottom: 15px;
                     }
                 }
             }
@@ -111,8 +114,6 @@
         .user {
             align-self: center;
         }
-
-
 
         li i:hover,
         i:hover,
@@ -139,7 +140,6 @@
         }
 
         .icon-notification::after {
-
             display: none;
         }
     }

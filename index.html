@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
+    <!-- link STYLES -->
     <link rel="stylesheet" href="vendor/icon-font/css/Glyphter.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -24,6 +25,7 @@
                         <span></span>
                     </i>
                 </div>
+                <!-- site navigation -->
                 <ul class="navigation">
                     <li class="active"><a href="#"><i class="icon-general"></i><span>General</span></a></li>
                     <li><a href="#"><i class="icon-details"></i><span>Details</span></a></li>
@@ -47,6 +49,8 @@
                         <li><span class="name">CPL</span><span class="price">$1200</span></li>
                         <li><span class="name">Turnover</span><span class="price">$1030</span></li>
                         <li><span class="name">NetDeposit</span><span class="price">$1000</span></li>
+                        <li><span class="name">Turnover</span><span class="price">$1030</span></li>
+                        <li><span class="name">NetDeposit</span><span class="price">$1000</span></li>
                     </ul>
                     <i class="icon-notification"></i>
                     <p class="user"><i class="icon-profile"></i>Leonardo Dicaprio</p>
@@ -55,16 +59,66 @@
             </div>
         </div>
         <!-- content -->
-        <div class="col-7 content ">
+        <div class=" content ">
             <main class="col-12 ">
-                <h1>Sadasdasdasdasdsassssssssssssssssss</h1>
-                <p>Psaa</p>
                 <!-- CONTENT -->
+                <!-- section STATISTICS -->
+                <section class="statistics">
+                    <h1 class="title">general statistics</h1>
+                    <div class="row date">
+                        <form class="date-period ">
+                            <input type="date" id="start" name="trip-start" value="2019-03-21" min="2019-01-01" max="2021-12-31">
+                            <span>|</span>
+                            <input type="date" id="finish" name="trip-finish" value="2019-03-22" min="2019-01-01" max="2021-12-31">
+                            <button type="submit"><i class="icon-calendar"></i></button>
+                        </form>
+                        <button class="btn btn-orange"><i class="icon-refresh"></i></button>
+                    </div>
+
+                    <div class="row stats">
+                        <div class="col-6 col-s-12">
+                            <div class="desc">
+                                <p>Visit Signups</p><span class="number"> 535</span>
+                                <hr>
+                            </div>
+                            <div class="desc">
+                                <p>Net deposit</p><span class="number">535</span>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="col-6 col-s-12">
+                            <div class="desc">
+                                <p>FTD</p><span class="number">535</span>
+                                <hr>
+                            </div>
+                            <div class="desc">
+                                <p>Turn over</p><span class="number">535</span>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- chart -->
+                    <div class="chart row">
+                        <h2 class="chartName">Earnings chart</h2>
+                        <div class="col-12 legend">
+                            <div class="colortab">Signups</div>
+                            <div class="colortab blue">FTD</div>
+                            <div class="colortab green empty">Earned</div>
+                        </div>
+                        <div class="col-12 chart-wrap">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+                <!-- /// section  over /// STATISTICS -->
             </main>
         </div>
     </div>
+    <!-- --------- SCRIPTS ----------- -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/sidebarToggler.js"></script>
+    <script src="js/myChart.js"></script>
 </body>
 
 </html>
