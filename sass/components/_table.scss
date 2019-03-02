@@ -1,0 +1,70 @@
+.table {
+    max-width: 700px;
+    margin: 0px auto;
+    width: 100%;
+    padding: 15px;
+    border-collapse: collapse;
+    line-height: 35px;
+    color: $grey-dark;
+
+    tr {
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 1px solid;
+        justify-content: space-between;
+        transition: 0.2s;
+        padding-left: 5px;
+
+        &:hover {
+            background-color: #f1f3f3;
+        }
+
+        td:first-child {
+            font-weight: 700;
+
+        }
+
+        &:first-child {
+            border-top: 1px solid;
+        }
+
+        .icon-trash,
+        .icon-links {
+            display: none;
+            transition: 0.2s;
+
+        }
+
+
+        &:hover .icon-trash,
+        &:hover .icon-links {
+            display: inline-block;
+
+        }
+
+        .icon-links {
+            color: $orange-dark
+        }
+
+        .link-wrapper {
+            display: flex;
+            justify-content: space-between;
+
+            [class*=icon] {
+                padding-right: 15px;
+                position: relative;
+                top: 4px;
+
+                &:hover {
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width:992px) {
+    .table {
+        line-height: 60px
+    }
+}

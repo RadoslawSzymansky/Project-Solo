@@ -1,0 +1,13 @@
+.link {
+    text-decoration: none;
+    color: #8eabbf;
+    font-size: 13px;
+
+    &:hover {
+        color: orange;
+    }
+
+    &.link-large {
+        font-size: 16px;
+    }
+}

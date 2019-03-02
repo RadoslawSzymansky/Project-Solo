@@ -1060,6 +1060,98 @@ body {
   }
 }
 
+.table {
+  max-width: 700px;
+  margin: 0px auto;
+  width: 100%;
+  padding: 15px;
+  border-collapse: collapse;
+  line-height: 40px;
+  color: #979797;
+}
+
+.table tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-bottom: 1px solid;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  padding-left: 5px;
+}
+
+.table tr:hover {
+  background-color: #f1f3f3;
+}
+
+.table tr td:first-child {
+  font-weight: 700;
+}
+
+.table tr:first-child {
+  border-top: 1px solid;
+}
+
+.table tr .icon-trash,
+.table tr .icon-links {
+  display: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.table tr:hover .icon-trash,
+.table tr:hover .icon-links {
+  display: inline-block;
+}
+
+.table tr .icon-links {
+  color: #f58220;
+}
+
+.table tr .link-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.table tr .link-wrapper [class*=icon] {
+  padding-right: 15px;
+  position: relative;
+  top: 4px;
+}
+
+.table tr .link-wrapper [class*=icon]:hover {
+  color: black;
+}
+
+@media (min-width: 992px) {
+  .table {
+    line-height: 60px;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #8eabbf;
+  font-size: 13px;
+}
+
+.link:hover {
+  color: orange;
+}
+
+.link.link-large {
+  font-size: 16px;
+}
+
 .statistics {
   border: 1px solid #bababa;
   background-color: #fff;
@@ -1183,5 +1275,19 @@ body {
     width: 90%;
     margin: 0 auto;
   }
+}
+
+.table-section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 1px solid #bababa;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.table-section .addLink {
+  display: block;
+  margin: 25px auto;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
