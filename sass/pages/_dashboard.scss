@@ -1,0 +1,17 @@
+#dashboard {
+    .table-section {
+        margin-top: 15px;
+    }
+}
+
+@media (min-width: 992px) {
+    #dashboard {
+        .statistics {
+            margin-top: 0;
+        }
+
+        .table-section {
+            margin-top: 15px;
+        }
+    }
+}

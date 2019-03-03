@@ -1066,7 +1066,7 @@ body {
   width: 100%;
   padding: 15px;
   border-collapse: collapse;
-  line-height: 40px;
+  line-height: 35px;
   color: #979797;
 }
 
@@ -1289,5 +1289,28 @@ body {
   display: block;
   margin: 25px auto;
   text-align: center;
+}
+
+#links .table-section {
+  margin-top: 25px;
+}
+
+@media (min-width: 992px) {
+  #links .table-section {
+    margin-top: 0px;
+  }
+}
+
+#dashboard .table-section {
+  margin-top: 15px;
+}
+
+@media (min-width: 992px) {
+  #dashboard .statistics {
+    margin-top: 0;
+  }
+  #dashboard .table-section {
+    margin-top: 15px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

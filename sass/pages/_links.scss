@@ -1,0 +1,14 @@
+#links {
+    .table-section {
+        margin-top: 25px;
+    }
+}
+
+@media(min-width: 992px) {
+
+    #links {
+        .table-section {
+            margin-top: 0px;
+        }
+    }
+}

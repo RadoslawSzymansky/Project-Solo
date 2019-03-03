@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body id="dashboard">
+<body id="links">
     <div class="row">
         <!-- FULL MENU left side and top -->
         <div class="menu col-5 disactive">
@@ -27,9 +27,9 @@
                 </div>
                 <!-- site navigation -->
                 <ul class="navigation">
-                    <li class="active"><a href="#"><i class="icon-general"></i><span>General</span></a></li>
+                    <li><a href="index.html"><i class="icon-general"></i><span>General</span></a></li>
                     <li><a href="#"><i class="icon-details"></i><span>Details</span></a></li>
-                    <li><a href="links.html"><i class="icon-links"></i><span>Links</span></a></li>
+                    <li class="active"><a href="#"><i class="icon-links"></i><span>Links</span></a></li>
                     <li><a href="#"><i class="icon-banners"></i><span>Banners</span></a></li>
                     <li><a href="#"><i class="icon-personaldata"></i><span>Personal Data</span></a></li>
                     <li><a href="#"><i class="icon-payout"></i><span>Payout</span></a></li>
@@ -62,55 +62,7 @@
         <div class=" content ">
             <main class="col-12 ">
                 <!-- CONTENT -->
-                <!-- section STATISTICS -->
-                <section class="statistics">
-                    <h1 class="title">general statistics</h1>
-                    <div class="row date">
-                        <form class="date-period ">
-                            <input type="date" id="start" name="trip-start" value="2019-03-21" min="2019-01-01" max="2021-12-31">
-                            <span>|</span>
-                            <input type="date" id="finish" name="trip-finish" value="2019-03-22" min="2019-01-01" max="2021-12-31">
-                            <button type="submit"><i class="icon-calendar"></i></button>
-                        </form>
-                        <button class="btn btn-orange"><i class="icon-refresh"></i></button>
-                    </div>
-
-                    <div class="row stats">
-                        <div class="col-6 col-s-12">
-                            <div class="desc">
-                                <p>Visit Signups</p><span class="number"> 535</span>
-                                <hr>
-                            </div>
-                            <div class="desc">
-                                <p>Net deposit</p><span class="number">535</span>
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="col-6 col-s-12">
-                            <div class="desc">
-                                <p>FTD</p><span class="number">535</span>
-                                <hr>
-                            </div>
-                            <div class="desc">
-                                <p>Turn over</p><span class="number">535</span>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- chart -->
-                    <div class="chart row">
-                        <h2 class="chartName">Earnings chart</h2>
-                        <div class="col-12 legend">
-                            <div class="colortab">Signups</div>
-                            <div class="colortab blue">FTD</div>
-                            <div class="colortab green empty">Earned</div>
-                        </div>
-                        <div class="col-12 chart-wrap">
-                            <canvas id="myChart"></canvas>
-                        </div>
-                    </div>
-                </section>
-                <!-- /// section  over /// STATISTICS -->
+                <!-- --------- SECTION LINKS START ----- -->
                 <section class="row table-section">
                     <div class="col-12 col-s-10">
                         <button class="addLink btn btn-orange-light">+ add new</button>
@@ -183,15 +135,13 @@
                         <button class="addLink btn btn-orange-light">+ add new</button>
                     </div>
                 </section>
+                <!-- --------- OVER SECTION LINKS  ----- -->
             </main>
         </div>
     </div>
     <!-- --------- SCRIPTS ----------- -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-    <script src="node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/sidebarToggler.js"></script>
-    <script src="js/myChart.js"></script>
 </body>
 
 </html>
