@@ -2,6 +2,9 @@
     text-decoration: none;
     color: #8eabbf;
     font-size: 13px;
+    max-width: 230px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     &:hover {
         color: orange;

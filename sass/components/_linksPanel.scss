@@ -1,0 +1,146 @@
+.popUpLinks {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 2;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    &.active {
+        display: flex;
+    }
+}
+
+
+.panelWrapper {
+    background-color: #fff;
+    color: $grey-light;
+    max-width: 800px;
+    padding-bottom: 10px;
+
+    .addHeader,
+    .editHeader {
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 10px
+    }
+
+    .addPanelForm {
+        border-bottom: 1px solid $grey-light;
+        border-top: 1px solid $grey-light;
+        padding: 10px;
+
+        text-align: center;
+
+        input {
+            margin-bottom: 5px;
+            margin-right: 10px;
+            color: $grey-dark;
+            height: 40px;
+            border: 1px solid;
+            padding-left: 5px;
+        }
+
+        .btn {
+            margin: 0 70px;
+        }
+    }
+}
+
+.editLink {
+    border-bottom: 1px solid $grey-light;
+    border-top: 1px solid $grey-light;
+    padding: 10px;
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    max-height: 25vh;
+    overflow: auto;
+
+    li {
+        color: rgb(71, 70, 70);
+        min-width: 80%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        margin-right: 20px;
+        margin-top: 5px;
+        line-height: 30px;
+        padding-left: 15px;
+
+        &:last-child {
+            align-self: flex-start;
+            justify-self: flex-start;
+        }
+
+        button {
+            background-color: rgb(77, 165, 238);
+            border-radius: 5px;
+            border: none;
+            padding: 0px 10px;
+            line-height: 30px;
+            color: #fff;
+            font-family: Roboto;
+            font-weight: bold;
+            margin-right: 15px;
+
+            &:hover {
+                color: rgb(77, 165, 238);
+                background-color: #fff;
+                box-shadow: 0px 0px 1px 1px rgb(77, 165, 238);
+            }
+        }
+    }
+}
+
+.editPanel {
+    display: none;
+
+    &.active {
+        display: block
+    }
+
+    border-bottom: 1px solid $grey-light;
+    border-top: 1px solid $grey-light;
+    padding: 10px;
+
+    text-align: center;
+
+    input {
+        margin-bottom: 5px;
+        margin-right: 10px;
+        color: $grey-dark;
+        height: 40px;
+        border: 1px solid;
+        padding-left: 5px;
+    }
+
+    .btn {
+        margin: 0 70px
+    }
+}
+
+
+@media (min-width: 520px) {
+    .editLink {
+        li {
+            min-width: 40%;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .editLink {
+        max-height:
+            45vh;
+
+        li {
+            min-width: 30%;
+        }
+    }
+}

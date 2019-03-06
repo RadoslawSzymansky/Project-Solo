@@ -16,15 +16,20 @@
     }
 
     input {
-        width: auto;
-        padding-left: 10px;
+        max-width: 130px;
         border: none;
         color: $grey-light;
         background-color: transparent;
+        margin: 0;
+        padding: 0 2px;
 
         &::-webkit-inner-spin-button,
-        &::-webkit-clear-button {
-            display: none;
+        &::-webkit-outer-spin-button,
+        &::-webkit-clear-button,
+        &::-webkit-calendar-picker-indicator {
+            -webkit-appearance: none;
+            margin: 0;
+            display: none
         }
 
         &:hover {
@@ -35,15 +40,16 @@
     button {
         border: none;
         background-color: transparent;
-        padding-right: 10px;
+        padding-right: 5px;
         padding-left: 2px;
         color: $grey-light;
+        color: #fff;
         position: relative;
-        top: 2px;
+        top: 2.5px;
+    }
 
-        :hover {
-            color: #000
-        }
+    &:hover button {
+        color: #000
     }
 }
 
@@ -52,7 +58,8 @@
         font-size: 14px;
 
         input {
-            padding-left: 35px;
+            padding-left: 10px;
+            max-width: 45%;
         }
 
         button {

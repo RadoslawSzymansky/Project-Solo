@@ -48,7 +48,11 @@ var myChart = new Chart(ctx, {
                 gridLines: {
                     display: false,
                 },
+                ticks: {
+                    beginAtZero: true // minimum value will be 0.
+                }
             }],
+
         },
         legend: {
             display: false,

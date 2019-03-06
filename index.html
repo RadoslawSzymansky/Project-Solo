@@ -59,19 +59,19 @@
             </div>
         </div>
         <!-- content -->
-        <div class=" content ">
+        <div class="content ">
             <main class="col-12 ">
                 <!-- CONTENT -->
                 <!-- section STATISTICS -->
                 <section class="statistics">
                     <h1 class="title">general statistics</h1>
                     <div class="row date">
-                        <form class="date-period ">
+                        <div class="date-period ">
                             <input type="date" id="start" name="trip-start" value="2019-03-21" min="2019-01-01" max="2021-12-31">
                             <span>|</span>
                             <input type="date" id="finish" name="trip-finish" value="2019-03-22" min="2019-01-01" max="2021-12-31">
                             <button type="submit"><i class="icon-calendar"></i></button>
-                        </form>
+                        </div>
                         <button class="btn btn-orange"><i class="icon-refresh"></i></button>
                     </div>
 
@@ -112,13 +112,13 @@
                 </section>
                 <!-- /// section  over /// STATISTICS -->
                 <section class="row table-section">
-                    <div class="col-12 col-s-10">
+                    <div class="col-12 col-s-12">
                         <button class="addLink btn btn-orange-light">+ add new</button>
                         <table class="table">
                             <tr class="row">
                                 <td class="col-6 col-s-12">Homepage</td>
                                 <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.homepage.com">http://www.homepage.com</a>
+                                    <a class="link link-large" href="http://www.homepage.com" target="_blank">http://www.homepage.com</a>
                                     <span> <i class="icon-links"></i><i class="icon-trash"></i>
                                     </span>
                                 </td>
@@ -126,7 +126,7 @@
                             <tr class="row">
                                 <td class="col-6 col-s-12">Your site</td>
                                 <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.yoursite.com">http://www.yoursite.com</a>
+                                    <a class="link link-large" href="http://www.yoursite.com" target="_blank">http://www.yoursite.com</a>
                                     <span> <i class="icon-links"></i><i class="icon-trash"></i>
                                     </span>
                                 </td>
@@ -134,7 +134,7 @@
                             <tr class="row">
                                 <td class="col-6 col-s-12">Your blog</td>
                                 <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.yoursite.com">http://www.yoursite.com</a>
+                                    <a class="link link-large" href="http://www.yoursite.com" target="_blank">http://www.yoursite.com</a>
                                     <span> <i class="icon-links"></i><i class="icon-trash"></i>
                                     </span>
                                 </td>
@@ -142,7 +142,7 @@
                             <tr class="row">
                                 <td class="col-6 col-s-12">Currently</td>
                                 <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.currently.com">http://www.currently.com</a>
+                                    <a class="link link-large" href="http://www.currently.com" target="_blank">http://www.currently.com</a>
                                     <span> <i class="icon-links"></i><i class="icon-trash"></i>
                                     </span>
                                 </td>
@@ -150,7 +150,7 @@
                             <tr class="row">
                                 <td class="col-6 col-s-12">Your favorite</td>
                                 <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.yoursite.com">http://www.yoursite.com</a>
+                                    <a class="link link-large" href="http://www.yoursite.com" target="_blank">http://www.yoursite.com</a>
                                     <span> <i class="icon-links"></i><i class="icon-trash"></i>
                                     </span>
                                 </td>
@@ -158,7 +158,7 @@
                             <tr class="row">
                                 <td class="col-6 col-s-12">Facebook:</td>
                                 <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.facebook.com">http://www.facebook.com</a>
+                                    <a class="link link-large" href="http://www.facebook.com" target="_blank">http://www.facebook.com</a>
                                     <span> <i class="icon-links"></i><i class="icon-trash"></i>
                                     </span>
                                 </td>
@@ -166,7 +166,7 @@
                             <tr class="row">
                                 <td class="col-6 col-s-12">Piece of wine</td>
                                 <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.pieceofwine.com">http://www.pieceofwine.com</a>
+                                    <a class="link link-large" href="http://www.pieceofwine.com target=" _blank"">http://www.pieceofwine.com</a>
                                     <span> <i class="icon-links"></i><i class="icon-trash"></i>
                                     </span>
                                 </td>
@@ -174,13 +174,52 @@
                             <tr class="row">
                                 <td class="col-6 col-s-12">Blurax</td>
                                 <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.blurax.com">http://www.blurax.com</a>
+                                    <a class="link link-large" href="http://www.blurax.com" target="_blank">http://www.blurax.com</a>
                                     <span> <i class="icon-links"></i><i class="icon-trash"></i>
                                     </span>
                                 </td>
                             </tr>
                         </table>
                         <button class="addLink btn btn-orange-light">+ add new</button>
+                    </div>
+                    <!-- ///////////////// -->
+                    <div class="popUpLinks ">
+                        <div class="panelWrapper">
+                            <h2 class="addHeader">Add url</h2>
+                            <form class="addPanelForm" action="submit">
+                                <input type="text" placeholder="Name:" class="linkName">
+                                <input type="text" placeholder="Adress URL.." class="linkUrl">
+                                <button class="btn btn-orange-light addReadyLink">Add</button>
+                            </form>
+                            <h2 class="editHeader">Edit links: </h2>
+                            <ul class="editLink">
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+                                <li><span>Name</span><button class="btnEdit">Edit</button></li>
+
+                            </ul>
+                            <div class="editPanel active">
+                                <input type="text" class="nameEdit">
+                                <input type="text" class="urlEdit">
+                                <button class="saveChange btn btn-orange">Save</button>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </main>
@@ -189,9 +228,11 @@
     <!-- --------- SCRIPTS ----------- -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <script src="node_modules/chart.js/dist/Chart.min.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/sidebarToggler.js"></script>
     <script src="js/myChart.js"></script>
+    <script src="js/linksConfig.js"></script>
+    <script src="js/links.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

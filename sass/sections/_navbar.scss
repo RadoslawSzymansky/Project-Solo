@@ -65,8 +65,17 @@
     .icon-notification::after {
         content: "Notification";
         font-family: 'Roboto', sans-serif;
-        display: inline;
         margin-left: 15px;
+        position: relative;
+        top: -2px
+    }
+
+    .icon-quit::after {
+        content: "Logout";
+        font-family: 'Roboto', sans-serif;
+        margin-left: 15px;
+        position: relative;
+        top: -2px
     }
 }
 
@@ -142,6 +151,9 @@
         .icon-notification::after {
             display: none;
         }
+
+        .icon-quit::after {
+            display: none;
+        }
     }
 }
-
