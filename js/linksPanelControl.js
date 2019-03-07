@@ -83,7 +83,8 @@ function showLinkPanel() {
     POP_UP_LINK.classList.add('active');
     document.body.classList.add('blocked');
     updateEditPanel();
-}``
+}
+``
 //
 // ADDING NEW ELEMENT(LINK)
 function addLink(e) {
@@ -119,6 +120,7 @@ const editLink = (e) => {
     EDIT_LINK_PANEL.classList.add('active')
     EDIT_NAME_INPUT.value = config[index].name;
     EDIT_URL_INPUT.value = config[index].link;
+    document.querySelector('.current span').textContent = config[index].name;
     EDIT_LINK_PANEL.querySelector('.saveChange').addEventListener('click', () => {
         let newName = EDIT_NAME_INPUT.value;
         let newUrl = EDIT_URL_INPUT.value;
@@ -128,6 +130,10 @@ const editLink = (e) => {
         config[index].link = newUrl;
         updateEditPanel();
         upDateLinkList();
+        alert('Success, you edited your link!')
+        EDIT_LINK_PANEL.classList.remove('active')
+        EDIT_NAME_INPUT.value = "";
+        EDIT_URL_INPUT.value = "";
     })
 }
 // events

@@ -1389,7 +1389,7 @@ body.blocked {
   background-color: #fff;
   color: #bababa;
   max-width: 800px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   position: relative;
 }
 
@@ -1437,6 +1437,20 @@ body.blocked {
   font-weight: 500;
   text-transform: uppercase;
   padding: 10px;
+}
+
+.panelWrapper .editHeader {
+  text-align: left;
+  border-bottom: 1px solid;
+}
+
+.panelWrapper .current {
+  text-align: left;
+  margin: 15px 0;
+}
+
+.panelWrapper .current span {
+  color: #56819f;
 }
 
 .panelWrapper .addPanelForm {
@@ -1489,7 +1503,7 @@ body.blocked {
   padding-left: 15px;
 }
 
-.editLinkUl li:last-child {
+span .editLinkUl li:last-child {
   -ms-flex-item-align: start;
       align-self: flex-start;
   justify-self: flex-start;

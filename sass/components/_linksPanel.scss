@@ -22,7 +22,7 @@
     background-color: #fff;
     color: $grey-light;
     max-width: 800px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     position: relative;
 
     .quitLinkPanel {
@@ -67,6 +67,19 @@
         padding: 10px
     }
 
+    .editHeader {
+        text-align: left;
+        border-bottom: 1px solid;
+    }
+
+    .current {
+        text-align: left;
+        margin: 15px 0;
+        span {
+            color: $blue;
+        }
+    }
+
     .addPanelForm {
         border-bottom: 1px solid $grey-light;
         border-top: 1px solid $grey-light;
@@ -109,10 +122,8 @@
         margin-top: 5px;
         line-height: 30px;
         padding-left: 15px;
-        span{
-            max-width: ;
-        }
-        &:last-child {
+
+        span &:last-child {
             align-self: flex-start;
             justify-self: flex-start;
         }
