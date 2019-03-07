@@ -65,74 +65,31 @@
                 <!-- --------- SECTION LINKS START ----- -->
                 <section class="row table-section">
                     <div class="col-12 col-s-12">
-                        <button class="addLink btn btn-orange-light">+ add new</button>
+                        <button class="showLinkPanel btn btn-orange-light">+ add new</button>
                         <table class="table">
-                            <tr class="row">
-                                <td class="col-6 col-s-12">Homepage</td>
-                                <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.homepage.com" target="_blank">http://www.homepage.com</a>
-                                    <span> <i class="icon-links"></i><i class="icon-trash"></i>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 col-s-12">Your site</td>
-                                <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.yoursite.com" target="_blank">http://www.yoursite.com</a>
-                                    <span> <i class="icon-links"></i><i class="icon-trash"></i>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 col-s-12">Your blog</td>
-                                <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.yoursite.com" target="_blank">http://www.yoursite.com</a>
-                                    <span> <i class="icon-links"></i><i class="icon-trash"></i>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 col-s-12">Currently</td>
-                                <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.currently.com" target="_blank">http://www.currently.com</a>
-                                    <span> <i class="icon-links"></i><i class="icon-trash"></i>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 col-s-12">Your favorite</td>
-                                <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.yoursite.com" target="_blank">http://www.yoursite.com</a>
-                                    <span> <i class="icon-links"></i><i class="icon-trash"></i>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 col-s-12">Facebook:</td>
-                                <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.facebook.com" target="_blank">http://www.facebook.com</a>
-                                    <span> <i class="icon-links"></i><i class="icon-trash"></i>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 col-s-12">Piece of wine</td>
-                                <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.pieceofwine.com" target="_blank">http://www.pieceofwine.com</a>
-                                    <span> <i class="icon-links"></i><i class="icon-trash"></i>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr class="row">
-                                <td class="col-6 col-s-12">Blurax</td>
-                                <td class="col-6 col-s-12 link-wrapper">
-                                    <a class="link link-large" href="http://www.blurax.com" target="_blank">http://www.blurax.com</a>
-                                    <span> <i class="icon-links"></i><i class="icon-trash"></i>
-                                    </span>
-                                </td>
-                            </tr>
+                            <tbody class="tableBody"></tbody>
                         </table>
-                        <button class="addLink btn btn-orange-light">+ add new</button>
+                        <button class="showLinkPanel btn btn-orange-light">+ add new</button>
+                    </div>
+                    <!-- ///////////////// -->
+                    <div class="popUpLinks ">
+                        <div class="panelWrapper">
+                            <button class="quitLinkPanel"><span>|</span><span>|</span></button>
+                            <h2 class="addHeader">Add url</h2>
+                            <form class="addPanelForm" action="submit">
+                                <input type="text" placeholder="Name:" class="linkName">
+                                <input type="text" placeholder="www.newsite.com" class="linkUrl">
+                                <button class="btn btn-orange-light addReadyLink">Add</button>
+                            </form>
+                            <h2 class="editHeader">Edit links: </h2>
+                            <ul class="editLinkUl">
+                            </ul>
+                            <div class="editPanel">
+                                <input type="text" class="nameEdit">
+                                <input type="text" class="urlEdit">
+                                <button class="saveChange btn btn-orange">Save</button>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <!-- --------- OVER SECTION LINKS  ----- -->
@@ -140,9 +97,10 @@
         </div>
     </div>
     <!-- --------- SCRIPTS ----------- -->
-    <script src="js/links.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/linksConfig.js"></script>
+    <script src="js/linksPanelControl.js"></script>
     <script src="js/sidebarToggler.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

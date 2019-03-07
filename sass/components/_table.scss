@@ -43,8 +43,23 @@
 
         }
 
+        .icon-trash {
+            position: relative;
+
+            &:hover span.tooltip-remove {
+                visibility: visible;
+            }
+        }
+
+
         .icon-links {
-            color: $orange-dark
+            color: $orange-dark;
+            position: relative;
+
+            &:hover span.tooltip-copy {
+                visibility: visible;
+                z-index: 0;
+            }
         }
 
         .link-wrapper {
@@ -62,7 +77,11 @@
             }
         }
     }
+
+
 }
+
+
 
 @media (min-width:992px) {
     .table {

@@ -1132,8 +1132,22 @@ body.blocked {
   display: inline-block;
 }
 
+.table tr .icon-trash {
+  position: relative;
+}
+
+.table tr .icon-trash:hover span.tooltip-remove {
+  visibility: visible;
+}
+
 .table tr .icon-links {
   color: #f58220;
+  position: relative;
+}
+
+.table tr .icon-links:hover span.tooltip-copy {
+  visibility: visible;
+  z-index: 0;
 }
 
 .table tr .link-wrapper {
@@ -1318,7 +1332,7 @@ body.blocked {
   padding: 10px;
 }
 
-.table-section .addLink {
+.table-section .showLinkPanel {
   display: block;
   margin: 25px auto;
   text-align: center;
@@ -1376,6 +1390,45 @@ body.blocked {
   color: #bababa;
   max-width: 800px;
   padding-bottom: 10px;
+  position: relative;
+}
+
+.panelWrapper .quitLinkPanel {
+  position: absolute;
+  right: -5px;
+  top: -10px;
+  width: 35px;
+  height: 35px;
+  font-size: 28px;
+  background: #f58220;
+  border: none;
+  -webkit-box-shadow: 0px 0px 5px 2px #4c4c4d;
+          box-shadow: 0px 0px 5px 2px #4c4c4d;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.733);
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.panelWrapper .quitLinkPanel:hover {
+  background: #ffa200;
+  -webkit-box-shadow: 0px 0px 5px 3px #4c4c4d;
+          box-shadow: 0px 0px 5px 3px #4c4c4d;
+}
+
+.panelWrapper .quitLinkPanel span {
+  font-weight: 700;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  display: inline-block;
+  position: absolute;
+  top: 1px;
+  left: 14px;
+}
+
+.panelWrapper .quitLinkPanel span:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .panelWrapper .addHeader,
@@ -1406,7 +1459,7 @@ body.blocked {
   margin: 0 70px;
 }
 
-.editLink {
+.editLinkUl {
   border-bottom: 1px solid #bababa;
   border-top: 1px solid #bababa;
   padding: 10px;
@@ -1420,7 +1473,7 @@ body.blocked {
   overflow: auto;
 }
 
-.editLink li {
+.editLinkUl li {
   color: #474646;
   min-width: 80%;
   display: -webkit-box;
@@ -1436,13 +1489,13 @@ body.blocked {
   padding-left: 15px;
 }
 
-.editLink li:last-child {
+.editLinkUl li:last-child {
   -ms-flex-item-align: start;
       align-self: flex-start;
   justify-self: flex-start;
 }
 
-.editLink li button {
+.editLinkUl li button {
   background-color: #4da5ee;
   border-radius: 5px;
   border: none;
@@ -1454,7 +1507,7 @@ body.blocked {
   margin-right: 15px;
 }
 
-.editLink li button:hover {
+.editLinkUl li button:hover {
   color: #4da5ee;
   background-color: #fff;
   -webkit-box-shadow: 0px 0px 1px 1px #4da5ee;
@@ -1487,17 +1540,53 @@ body.blocked {
 }
 
 @media (min-width: 520px) {
-  .editLink li {
+  .editLinkUl li {
     min-width: 40%;
   }
 }
 
 @media (min-width: 992px) {
-  .editLink {
+  .editLinkUl {
     max-height: 45vh;
   }
-  .editLink li {
+  .editLinkUl li {
     min-width: 30%;
   }
+}
+
+.tooltip {
+  visibility: hidden;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  position: absolute;
+  top: -20px;
+  left: -50px;
+  min-width: 110px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip.tooltip-copied {
+  z-index: 1;
+}
+
+.tooltip.tooltip-copied.active {
+  visibility: visible;
+  background-color: #666;
 }
 /*# sourceMappingURL=style.css.map */

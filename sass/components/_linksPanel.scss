@@ -10,9 +10,11 @@
     padding: 10px;
     align-items: center;
     justify-content: center;
+
     &.active {
         display: flex;
     }
+
 }
 
 
@@ -21,6 +23,41 @@
     color: $grey-light;
     max-width: 800px;
     padding-bottom: 10px;
+    position: relative;
+
+    .quitLinkPanel {
+        position: absolute;
+        right: -5px;
+        top: -10px;
+        width: 35px;
+        height: 35px;
+        font-size: 28px;
+        background: $orange-dark;
+        border: none;
+        box-shadow: 0px 0px 5px 2px rgb(76, 76, 77);
+        border-radius: 50%;
+        color: rgba(255, 255, 255, 0.733);
+        transition: 0.1s;
+
+        &:hover {
+            background: $orange;
+            box-shadow: 0px 0px 5px 3px rgb(76, 76, 77);
+        }
+
+        span {
+            font-weight: 700;
+            transform: rotate(45deg);
+            display: inline-block;
+            position: absolute;
+            top: 1px;
+            left: 14px;
+
+            &:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+
+    }
 
     .addHeader,
     .editHeader {
@@ -52,7 +89,7 @@
     }
 }
 
-.editLink {
+.editLinkUl {
     border-bottom: 1px solid $grey-light;
     border-top: 1px solid $grey-light;
     padding: 10px;
@@ -72,7 +109,9 @@
         margin-top: 5px;
         line-height: 30px;
         padding-left: 15px;
-
+        span{
+            max-width: ;
+        }
         &:last-child {
             align-self: flex-start;
             justify-self: flex-start;
@@ -127,7 +166,7 @@
 
 
 @media (min-width: 520px) {
-    .editLink {
+    .editLinkUl {
         li {
             min-width: 40%;
         }
@@ -135,7 +174,7 @@
 }
 
 @media (min-width: 992px) {
-    .editLink {
+    .editLinkUl {
         max-height:
             45vh;
 

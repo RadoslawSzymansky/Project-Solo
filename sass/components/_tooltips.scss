@@ -1,0 +1,35 @@
+.tooltip {
+    //  changing visibility in JS or in parent :hover, and position relative
+    visibility: hidden;
+    transition: 0.2s;
+    position: absolute;
+    top: -20px;
+    left: -50px;
+    min-width: 110px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 25px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    &.tooltip-copied {
+        &.active {
+            visibility: visible;
+            background-color: #666;
+        }
+
+        z-index: 1;
+    }
+}
