@@ -1,3 +1,7 @@
+.toolParent {
+    position: relative;
+}
+
 .tooltip {
     //  changing visibility in JS or in parent :hover, and position relative
     visibility: hidden;
@@ -32,4 +36,13 @@
 
         z-index: 1;
     }
+
+    &.active {
+        visibility: visible;
+        background-color: $orange;
+        box-shadow: 1px;
+        box-shadow: 0px 0px 2px 2px #000;
+        transform: scale(1.1)
+    }
+
 }

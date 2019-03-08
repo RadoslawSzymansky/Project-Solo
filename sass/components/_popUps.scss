@@ -1,0 +1,17 @@
+.popUpEdit {
+    position: relative;
+    top: 0px;
+    left: 10px;
+    display: inline-block;
+    background-color: $blue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0px 0px 3px 2px red;
+    transition: 0.15s;
+    transform: scale(0);
+
+    &.active {
+        transform: scale(1)
+    }
+}
