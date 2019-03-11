@@ -7,8 +7,8 @@
     line-height: 25px;
     color: $grey-dark;
 
-
     tr {
+        min-height: 35px;
         display: flex;
         flex-wrap: wrap;
         border-bottom: 1px solid;
@@ -22,7 +22,6 @@
 
         td:first-child {
             font-weight: 700;
-
         }
 
         &:first-child {

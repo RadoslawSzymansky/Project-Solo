@@ -2,6 +2,7 @@
 @import "mixins";
 @import "normalize";
 @import "layout";
+@import "components/tooltips";
 @import "sections/sidebar";
 @import "sections/navbar";
 @import "pages/globalmedia";
@@ -17,5 +18,4 @@
 @import "pages/statistics";
 @import "pages/dashboard";
 @import "components/linksPanel";
-@import "components/tooltips";
 @import "components/popUps";

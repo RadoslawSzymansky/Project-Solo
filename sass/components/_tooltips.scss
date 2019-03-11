@@ -46,3 +46,12 @@
     }
 
 }
+
+.tooltipLinkWrapper {
+    position: relative;
+    max-height: 25px;
+
+    &:hover .tooltip {
+        visibility: visible;
+    }
+}

@@ -17,13 +17,13 @@
 
 }
 
+
 .panelWrapper {
     background-color: #fff;
     color: $grey-light;
     max-width: 800px;
     padding-bottom: 20px;
     position: relative;
-
 
     .quitLinkPanel {
         position: absolute;
@@ -154,7 +154,6 @@
         }
     }
 }
-
 
 .editPanel {
     display: none;
