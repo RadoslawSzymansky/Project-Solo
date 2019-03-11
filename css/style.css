@@ -548,10 +548,8 @@ body {
   }
 }
 
-body.blocked {
-  max-height: 100vh;
-  height: 100vh;
-  overflow-y: hidden;
+.disableScroll {
+  overflow: hidden;
 }
 
 [class*=icon] {
@@ -1332,7 +1330,7 @@ body.blocked {
   padding: 10px;
 }
 
-.table-section .showLinkPanel {
+.table-section .btnShowLinkPanel {
   display: block;
   margin: 25px auto;
   text-align: center;
@@ -1379,7 +1377,7 @@ body.blocked {
           justify-content: center;
 }
 
-.popUpLinks.active {
+.popUpLinks.showLinksPanel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1463,14 +1461,31 @@ body.blocked {
 .panelWrapper .addPanelForm input {
   margin-bottom: 5px;
   margin-right: 10px;
-  color: #979797;
+  color: #4e4e4e;
   height: 40px;
   border: 1px solid;
   padding-left: 5px;
 }
 
+.panelWrapper .addPanelForm input::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+.panelWrapper .addPanelForm input:-ms-input-placeholder {
+  color: #ccc;
+}
+
+.panelWrapper .addPanelForm input::-ms-input-placeholder {
+  color: #ccc;
+}
+
+.panelWrapper .addPanelForm input::placeholder {
+  color: #ccc;
+}
+
 .panelWrapper .addPanelForm .btn {
   margin: 0 70px;
+  outline: 0;
 }
 
 .editLinkUl {

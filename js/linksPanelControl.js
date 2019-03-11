@@ -1,5 +1,5 @@
 const TABLE_BODY = document.querySelector(".tableBody");
-const BTN_SHOW_LINK_PANEL = document.querySelectorAll(".showLinkPanel");
+const BTN_SHOW_LINK_PANEL = document.querySelectorAll(".btnShowLinkPanel");
 const POP_UP_LINK = document.querySelector(".popUpLinks");
 const BTN_QUIT_LINK_PANEL = document.querySelector(".quitLinkPanel");
 // adding DOM ELEMENTS
@@ -78,8 +78,8 @@ function upDateLinkList() {
 
 // show the link panel
 function showLinkPanel() {
-    POP_UP_LINK.classList.add("active");
-    document.body.classList.add("blocked");
+    POP_UP_LINK.classList.add("showLinksPanel");
+    document.documentElement.classList.add("disableScroll");
     updateEditPanel();
 }
 ``;
@@ -129,21 +129,7 @@ function updateEditPanel() {
         e.addEventListener("click", editLink)
     )
 };
-// first try, but its not okay //
-// }function updateEditPanel() {
-//     EDIT_LINK_BODY.innerHTML = "";
-//     config.forEach(e => {
-//         EDIT_LINK_BODY.innerHTML += `<li><span>${
-//             e.name
-//         }</span><button  data-key="${
-//             e.key
-//         }" class="btnEdit">Edit</button></li>`;
-//     });
 
-//     EDIT_LINK_BODY.querySelectorAll(".btnEdit").forEach(e =>
-//         e.addEventListener("click", editLink)
-//     );
-// }
 // FUNCTION FOR EDITING LINK //
 const editLink = e => {
     let index = e.target.dataset.key;
@@ -151,19 +137,23 @@ const editLink = e => {
     EDIT_NAME_INPUT.value = config[index].name;
     EDIT_URL_INPUT.value = config[index].link;
     document.querySelector(".current span").textContent = config[index].name;
+    // sprawdzić czy to przez to że za kazdym azem jest add event listenere w funckji, raczej tak
     EDIT_LINK_PANEL.querySelector(".saveChange").addEventListener(
         "click",
         () => {
             let newName = EDIT_NAME_INPUT.value;
             let newUrl = EDIT_URL_INPUT.value;
-            if (newName.length < 3 || newName.length > 15)
+            console.log("zmieniam")
+            if (newName.length < 3 || newName.length > 15) {
                 return alert(
                     "Name must be longer than 3 letters! And max 15 letters!"
-                );
-            if (!newUrl.startsWith("www."))
+                )
+            }
+            if (!newUrl.startsWith("www.")) {
                 return alert(
                     "Add correct website adress, e.g www.site.com. Without https://..."
-                );
+                )
+            };
             config[index].name = newName;
             config[index].link = newUrl;
             updateEditPanel();
@@ -186,8 +176,8 @@ function closeEditPanel() {
 // events
 // --- hide link panel and unlock the body
 BTN_QUIT_LINK_PANEL.addEventListener("click", function () {
-    POP_UP_LINK.classList.remove("active");
-    document.body.classList.remove("blocked");
+    POP_UP_LINK.classList.remove("showLinksPanel");
+    document.documentElement.classList.remove("disableScroll");
     upDateLinkList();
 });
 

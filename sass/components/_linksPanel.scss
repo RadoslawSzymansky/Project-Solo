@@ -11,12 +11,11 @@
     align-items: center;
     justify-content: center;
 
-    &.active {
+    &.showLinksPanel {
         display: flex;
     }
 
 }
-
 
 .panelWrapper {
     background-color: #fff;
@@ -24,6 +23,7 @@
     max-width: 800px;
     padding-bottom: 20px;
     position: relative;
+
 
     .quitLinkPanel {
         position: absolute;
@@ -75,6 +75,7 @@
     .current {
         text-align: left;
         margin: 15px 0;
+
         span {
             color: $blue;
         }
@@ -90,14 +91,19 @@
         input {
             margin-bottom: 5px;
             margin-right: 10px;
-            color: $grey-dark;
+            color: rgb(78, 78, 78);
             height: 40px;
             border: 1px solid;
             padding-left: 5px;
+
+            &::placeholder {
+                color: #ccc
+            }
         }
 
         .btn {
             margin: 0 70px;
+            outline: 0;
         }
     }
 }
@@ -111,6 +117,7 @@
     flex-wrap: wrap;
     max-height: 25vh;
     overflow: auto;
+
 
     li {
         color: rgb(71, 70, 70);
@@ -147,6 +154,7 @@
         }
     }
 }
+
 
 .editPanel {
     display: none;

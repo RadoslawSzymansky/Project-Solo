@@ -114,8 +114,6 @@ body {
 }
 
 // blocking site when some poputs and menu is active on mobiles:
-body.blocked {
-    max-height: 100vh;
-    height: 100vh;
-    overflow-y: hidden;
+.disableScroll {
+    overflow: hidden;
 }
