@@ -512,21 +512,49 @@ body {
   z-index: 1;
 }
 
-.menu.disactive {
-  left: -100%;
-}
-
 .content {
   width: calc(100% - 20px);
-  margin-left: 10px;
   -webkit-transition: 0.3s linear;
   transition: 0.3s linear;
   padding: 5px;
   margin-right: auto;
+  margin-left: 180px;
 }
 
-.content.menuactive {
-  margin-left: 180px;
+.menu.menuHidden {
+  left: -100%;
+}
+
+.menu.menuHidden .logo .hamburger {
+  left: 4px;
+  top: 4px;
+  position: fixed;
+}
+
+.menu.menuHidden .logo .hamburger span {
+  background-color: #f58220;
+}
+
+.menu.menuHidden .logo .hamburger:hover span {
+  background-color: #777;
+}
+
+.menu.menuHidden .logo .hamburger:after {
+  display: block;
+  content: "";
+  width: 100px;
+  height: 100px;
+  background-color: rgba(20, 20, 0, 0.2);
+  position: fixed;
+  top: -14px;
+  left: -60px;
+  z-index: -1;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.menu.menuHidden + .content {
+  margin-left: 10px;
 }
 
 @media (min-width: 992px) {
@@ -538,13 +566,44 @@ body {
     overflow: hidden;
   }
   .content {
-    width: calc(100% - 45px);
-    margin-left: 45px;
     padding: 15px;
-  }
-  .content.menuactive {
     margin-left: 260px;
     width: calc(100% - 260px);
+  }
+  .menu.menuHidden {
+    position: fixed;
+    width: 45px;
+    left: 0;
+  }
+  .menu.menuHidden .sidebar li span,
+  .menu.menuHidden .manager span,
+  .menu.menuHidden .manager p,
+  .menu.menuHidden .logo img {
+    display: none;
+  }
+  .menu.menuHidden .manager img {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    left: -8px;
+  }
+  .menu.menuHidden .logo > .hamburger {
+    left: -3px;
+    top: -2px;
+    position: relative;
+  }
+  .menu.menuHidden .logo > .hamburger:hover span {
+    background-color: #fff;
+  }
+  .menu.menuHidden .logo > .hamburger span {
+    background-color: #ddd;
+  }
+  .menu.menuHidden .logo > .hamburger:after {
+    display: none;
+  }
+  .menu.menuHidden + .content {
+    width: calc(100% - 45px);
+    margin-left: 45px;
   }
 }
 
@@ -646,34 +705,6 @@ body {
   background-color: #fff;
 }
 
-.sidebar .logo .hamburger.menuHidden {
-  left: 4px;
-  top: 4px;
-  position: fixed;
-}
-
-.sidebar .logo .hamburger.menuHidden span {
-  background-color: #f58220;
-}
-
-.sidebar .logo .hamburger.menuHidden:hover span {
-  background-color: #777;
-}
-
-.sidebar .logo .hamburger.menuHidden:after {
-  display: block;
-  content: "";
-  width: 100px;
-  height: 100px;
-  background-color: rgba(20, 20, 0, 0.2);
-  position: fixed;
-  top: -14px;
-  left: -60px;
-  z-index: -1;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
 .sidebar .logo span {
   width: 5px;
   height: 25px;
@@ -772,37 +803,6 @@ body {
   .sidebar .logo {
     background-color: #191919;
     height: 60px;
-  }
-  .sidebar .logo > .hamburger.menuHidden {
-    left: -3px;
-    top: -2px;
-    position: relative;
-  }
-  .sidebar .logo > .hamburger.menuHidden:hover span {
-    background-color: #fff;
-  }
-  .sidebar .logo > .hamburger.menuHidden span {
-    background-color: #ddd;
-  }
-  .sidebar .logo > .hamburger.menuHidden:after {
-    display: none;
-  }
-  .menu.disactive {
-    position: fixed;
-    width: 45px;
-    left: 0;
-  }
-  .menu.disactive .sidebar li span,
-  .menu.disactive .manager span,
-  .menu.disactive .manager p,
-  .menu.disactive .logo img {
-    display: none;
-  }
-  .menu.disactive .manager img {
-    position: relative;
-    width: 25px;
-    height: 25px;
-    left: -8px;
   }
 }
 

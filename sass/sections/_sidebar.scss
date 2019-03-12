@@ -22,33 +22,6 @@
             &:hover span {
                 background-color: #fff;
             }
-
-            &.menuHidden {
-                left: 4px;
-                top: 4px;
-                position: fixed;
-
-                span {
-                    background-color: $orange-dark;
-                }
-
-                &:hover span {
-                    background-color: #777;
-                }
-
-                &:after {
-                    display: block;
-                    content: "";
-                    width: 100px;
-                    height: 100px;
-                    background-color: rgba(20, 20, 0, .2);
-                    position: fixed;
-                    top: -14px;
-                    left: -60px;
-                    z-index: -1;
-                    transform: rotate(45deg)
-                }
-            }
         }
 
         span {
@@ -58,7 +31,7 @@
             background-color: $grey-light;
         }
     }
-
+    
     // left side - sites navigation
     .navigation {
         line-height: 40px;
@@ -66,7 +39,6 @@
         border-bottom: 1px solid;
         margin-bottom: 10px;
         list-style: none;
-
         li {
             padding-left: 15px;
             transition: 0.1s;
@@ -139,9 +111,7 @@
         }
     }
 }
-
 // Large devices ( tables, desktops, 992px and up)
-
 @media (min-width: 992px) {
     .sidebar {
         font-size: 14px;
@@ -149,47 +119,6 @@
         .logo {
             background-color: $sidebar-color;
             height: 60px;
-        }
-
-        // Logo //
-        .logo>.hamburger {
-            &.menuHidden {
-                left: -3px;
-                top: -2px;
-                position: relative;
-
-                &:hover span {
-                    background-color: #fff;
-                }
-
-                span {
-                    background-color: #ddd;
-                }
-
-                &:after {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    .menu.disactive {
-        position: fixed;
-        width: 45px;
-        left: 0;
-
-        .sidebar li span,
-        .manager span,
-        .manager p,
-        .logo img {
-            display: none;
-        }
-
-        .manager img {
-            position: relative;
-            width: 25px;
-            height: 25px;
-            left: -8px;
         }
     }
 }

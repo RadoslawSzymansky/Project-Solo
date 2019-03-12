@@ -81,7 +81,6 @@ function upDateLinkList() {
 
 // show the link panel
 function showLinkPanel() {
-    console.log('a')
     POP_UP_LINK.classList.add("showLinksPanel");
     document.documentElement.classList.add("blockOverlay");
     updateEditPanel();
