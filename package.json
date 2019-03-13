@@ -16,7 +16,7 @@
         "init:files": "touch README.md index.html sass/style.scss js/script.js",
         "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
         "watch:browsersync": "node_modules/.bin/browser-sync start --server --files 'css/*.css' '*.html'",
-        "watch:sassprefixer": "onchange -d 100 sass/sections/*.scss -- npm-run-all sass build:prefix",
+        "watch:sassprefixer": "onchange -d 100 sass/components/*.scss -- npm-run-all sass build:prefix",
         "build": "npm-run-all  build:*",
         "init": "npm install && npm-run-all init:*",
         "watch": "npm run build && npm-run-all -p watch:*"

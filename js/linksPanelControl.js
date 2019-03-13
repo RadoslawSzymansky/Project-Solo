@@ -2,15 +2,14 @@ const TABLE_BODY = document.querySelector(".tableBody");
 const BTN_SHOW_LINK_PANEL = document.querySelectorAll(".btnShowLinkPanel");
 const POP_UP_LINK = document.querySelector(".popUpLinks");
 const BTN_QUIT_LINK_PANEL = document.querySelector(".quitLinkPanel");
+const ADD_HEADER = document.querySelector('.addHeader');
+
 // adding DOM ELEMENTS
-const BTN_ADD_LINK = document.querySelector(".addReadyLink");
+const BTN_LINK_SUBMIT = document.querySelector(".addReadyLink");
 const INPUT_ADD_NAME = document.querySelector(".linkName");
 const INPUT_ADD_URL = document.querySelector(".linkUrl");
 // edit link panel DOM ELEMENST
 const EDIT_LINK_BODY = document.querySelector(".editLinkUl");
-const EDIT_LINK_PANEL = document.querySelector(".editPanel");
-const EDIT_NAME_INPUT = document.querySelector("input.nameEdit");
-const EDIT_URL_INPUT = document.querySelector("input.urlEdit");
 //  start values
 let currentEditElementIndex = null;
 
@@ -22,7 +21,6 @@ const copyLink = e => {
     el.select();
     document.execCommand("copy");
     document.body.removeChild(el);
-    //
     // showing tooltip
     e.target.querySelector("span").classList.add("active");
     setTimeout(() => {
@@ -44,9 +42,7 @@ const removeLink = e => {
     updateLinksKey();
     upDateLinkList();
 };
-// // //
 // function for showing current array!
-// ----------- first way. takes about 20ms to create 400 <tr> ------------------
 function upDateLinkList() {
     TABLE_BODY.innerHTML = "";
     let code = "";
@@ -80,15 +76,23 @@ function upDateLinkList() {
 }
 
 // show the link panel
-function showLinkPanel() {
+function showLinkPanel(e) {
+    e.stopPropagation();
     POP_UP_LINK.classList.add("showLinksPanel");
     document.documentElement.classList.add("blockOverlay");
-    updateEditPanel();
+    fillEditPanel();
+    document.querySelector(".blockOverlay").addEventListener("click", closePanel);
 }
 ``;
 //
-// ADDING NEW ELEMENT(LINK)
-function addLink(e) {
+function closePanel() {
+    document.querySelector(".blockOverlay").removeEventListener("click", closePanel);
+    POP_UP_LINK.classList.remove("showLinksPanel");
+    document.documentElement.classList.remove("blockOverlay");
+    upDateLinkList();
+}
+// ADDING OR CHANGNING ELEMENT(LINK)
+function submitLink(e) {
     e.preventDefault();
     let newName = INPUT_ADD_NAME.value;
     let newUrl = INPUT_ADD_URL.value;
@@ -98,6 +102,25 @@ function addLink(e) {
         return alert(
             "Add correct website adress, e.g www.site.com. Without https://..."
         );
+    // if its  editing the link
+    if (e.target.id === "changeLink") {
+        // tutaj zmiana linka
+        let index = currentEditElementIndex;
+        config[index].name = newName;
+        config[index].link = newUrl;
+        EDIT_LINK_BODY.querySelector(`[data-key="${index}"]`).textContent = newName;
+        document.querySelector('.popUpEdit').classList.add('active');
+        setTimeout(() => {
+            document.querySelector('.popUpEdit').classList.remove('active');
+        }, 1200)
+        BTN_LINK_SUBMIT.innerHTML = `Add<span class="tooltip">Link
+        added!</span>`;
+        cleanInputs()
+        BTN_LINK_SUBMIT.id = "";
+        ADD_HEADER.textContent = "ADD URL"
+        return;
+    }
+    e.preventDefault();
     const newLink = {
         name: newName,
         link: newUrl,
@@ -115,19 +138,22 @@ function addLink(e) {
         config.length -1
     }" class="btnEdit">Edit</button>`
         EDIT_LINK_BODY.appendChild(li);
-        li.addEventListener('click', showEditLinkPanel)
+        li.addEventListener('click', changeFormToEdit)
     }
     addNewLinkToEditPanel();
-    INPUT_ADD_NAME.value = "";
-    INPUT_ADD_URL.value = "";
-    BTN_ADD_LINK.querySelector('span').classList.add('active');
+    cleanInputs()
+    BTN_LINK_SUBMIT.querySelector('span').classList.add('active');
     setTimeout(() => {
-        BTN_ADD_LINK.querySelector('span').classList.remove('active');
+        BTN_LINK_SUBMIT.querySelector('span').classList.remove('active');
     }, 300)
 }
 // UPDATING EDIT PANEL LIST
+function cleanInputs() {
+    INPUT_ADD_NAME.value = "";
+    INPUT_ADD_URL.value = "";
+}
 
-function updateEditPanel() {
+function fillEditPanel() {
     EDIT_LINK_BODY.innerHTML = "";
     let fragment = document.createDocumentFragment();
     config.forEach(e => {
@@ -140,68 +166,34 @@ function updateEditPanel() {
             e.key
         }" class="btnEdit">Edit</button>`
         fragment.appendChild(li)
-
     });
     EDIT_LINK_BODY.appendChild(fragment)
     EDIT_LINK_BODY.querySelectorAll(".btnEdit").forEach(e =>
-        e.addEventListener("click", showEditLinkPanel)
+        e.addEventListener("click", changeFormToEdit)
     )
 };
 
 // FUNCTION FOR  showing eDITING LINK panel //
-const showEditLinkPanel = e => {
+const changeFormToEdit = e => {
     let index = e.target.dataset.key;
     currentEditElementIndex = index;
-    EDIT_LINK_PANEL.classList.add("active");
-    EDIT_NAME_INPUT.value = config[index].name;
-    EDIT_URL_INPUT.value = config[index].link;
-    document.querySelector(".current span").textContent = config[index].name;
+    INPUT_ADD_NAME.value = config[index].name;
+    INPUT_ADD_URL.value = config[index].link;
+    BTN_LINK_SUBMIT.textContent = "Save";
+    BTN_LINK_SUBMIT.setAttribute('id', 'changeLink');
+    ADD_HEADER.innerHTML = `Currently chaning: <span style="color: #56819f;">${config[index].name}</span>`
 };
-// function for editing choosed link,
-const editLink = () => {
-    let index = currentEditElementIndex;
-    let newName = EDIT_NAME_INPUT.value;
-    let newUrl = EDIT_URL_INPUT.value;
-    if (newName.length < 3 || newName.length > 15) {
-        return alert(
-            "Name must be longer than 3 letters! And max 15 letters!"
-        )
-    }
-    if (!newUrl.startsWith("www.")) {
-        return alert(
-            "Add correct website adress, e.g www.site.com. Without https://..."
-        )
-    };
-    config[index].name = newName;
-    config[index].link = newUrl;
-    // updateEditPanel();
-    EDIT_LINK_BODY.querySelector(`[data-key="${index}"]`).textContent = newName;
-    document.querySelector('.popUpEdit').classList.add('active');
-    setTimeout(() => {
-        document.querySelector('.popUpEdit').classList.remove('active');
-    }, 1200)
-    closeEditPanel();
-}
-
-
-// function for hiding and cleaning edit panel after succesed chaning or closing the links panell
-function closeEditPanel() {
-    EDIT_LINK_PANEL.classList.remove("active");
-    EDIT_NAME_INPUT.value = "";
-    EDIT_URL_INPUT.value = "";
-}
 
 // events
 // --- hide link panel and unlock the body
-BTN_QUIT_LINK_PANEL.addEventListener("click", function () {
-    POP_UP_LINK.classList.remove("showLinksPanel");
-    document.documentElement.classList.remove("blockOverlay");
-    upDateLinkList();
-});
+BTN_QUIT_LINK_PANEL.addEventListener("click", closePanel);
+
 
 BTN_SHOW_LINK_PANEL.forEach(e => e.addEventListener("click", showLinkPanel));
-BTN_ADD_LINK.addEventListener("click", addLink);
-EDIT_LINK_PANEL.querySelector(".saveChange").addEventListener("click", editLink);
+BTN_LINK_SUBMIT.addEventListener("click", submitLink);
+document.querySelector('.panelWrapper').addEventListener("click", function (e) {
+    e.stopPropagation()
+});
 
 //
 // first creating of list

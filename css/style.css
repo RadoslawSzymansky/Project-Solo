@@ -1446,11 +1446,17 @@ body {
 }
 
 .panelWrapper {
+  position: relative;
+  top: -10vh;
   background-color: #fff;
   color: #bababa;
   max-width: 800px;
   padding-bottom: 20px;
   position: relative;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 20px 2px black;
+          box-shadow: 0px 0px 20px 2px black;
+  padding: 0 10px;
 }
 
 .panelWrapper .quitLinkPanel {
@@ -1499,11 +1505,6 @@ body {
   padding: 10px;
 }
 
-.panelWrapper .editHeader {
-  text-align: left;
-  border-bottom: 1px solid;
-}
-
 .panelWrapper .current {
   text-align: left;
   margin: 15px 0;
@@ -1523,9 +1524,9 @@ body {
 .panelWrapper .addPanelForm input {
   margin-bottom: 5px;
   margin-right: 10px;
-  color: #4e4e4e;
+  color: #444444;
   height: 40px;
-  border: 1px solid;
+  border: 1px solid #bababa;
   padding-left: 5px;
 }
 
@@ -1551,7 +1552,6 @@ body {
 }
 
 .editLinkUl {
-  border-bottom: 1px solid #bababa;
   border-top: 1px solid #bababa;
   padding: 10px;
   display: -webkit-box;
@@ -1605,31 +1605,6 @@ span .editLinkUl li:last-child {
           box-shadow: 0px 0px 1px 1px #4da5ee;
 }
 
-.editPanel {
-  display: none;
-  border-bottom: 1px solid #bababa;
-  border-top: 1px solid #bababa;
-  padding: 10px;
-  text-align: center;
-}
-
-.editPanel.active {
-  display: block;
-}
-
-.editPanel input {
-  margin-bottom: 5px;
-  margin-right: 10px;
-  color: #979797;
-  height: 40px;
-  border: 1px solid;
-  padding-left: 5px;
-}
-
-.editPanel .btn {
-  margin: 0 70px;
-}
-
 @media (min-width: 520px) {
   .editLinkUl li {
     min-width: 40%;
@@ -1637,6 +1612,9 @@ span .editLinkUl li:last-child {
 }
 
 @media (min-width: 992px) {
+  .panelWrapper {
+    min-width: 800px;
+  }
   .editLinkUl {
     max-height: 45vh;
   }

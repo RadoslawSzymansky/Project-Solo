@@ -5,7 +5,7 @@ const SETTINGS = {
     dropActive: false,
 }
 const toggleMenu = () => {
-    MENU.classList.toggle('menuHidden');
+    MENU.classList.toggle('menuHidden'); 
 }
 // changing ul drop down menu
 const toggleDropDown = (e) => {
@@ -17,6 +17,7 @@ const toggleDropDown = (e) => {
 burgerBtn.addEventListener('click', toggleMenu);
 DROP_DOWN.addEventListener('click', toggleDropDown)
 // turn off menu if it smaller than 992px width device
+
 if (document.body.offsetWidth < 992) {
     MENU.classList.add('menuHidden');
 }
