@@ -6,6 +6,8 @@ const ADD_HEADER = document.querySelector('.addHeader');
 
 // adding DOM ELEMENTS
 const BTN_LINK_SUBMIT = document.querySelector(".addReadyLink");
+const FORM_LINK = document.querySelector(".addReadyLink");
+
 const INPUT_ADD_NAME = document.querySelector(".linkName");
 const INPUT_ADD_URL = document.querySelector(".linkUrl");
 // edit link panel DOM ELEMENST
@@ -47,24 +49,21 @@ function upDateLinkList() {
     TABLE_BODY.innerHTML = "";
     let code = "";
     config.forEach(e => {
-        code += `<tr class="row">
-            <td class="col-6 col-s-12">${e.name}</td>
-            <td class="col-6 col-s-12 link-wrapper">
-               <span class="tooltipLinkWrapper"> <a data-key="${e.key}" class="link link-large" href="//${
-            e.link
-        }" target="_blank">${e.link}</a><span class="tooltip">${e.link}</span></span>
-
-                <span>
-                    <i class="icon-links copy" data-key="${e.key}">
-                        <span class="tooltip tooltip-copied">Link Copied</span>
-                        <span class="tooltip tooltip-copy">Copy link</span>
-                    </i>
-                    <i class="icon-trash remove" data-key="${e.key}">
-                        <span class="tooltip tooltip-remove">Remove link</span>
-                 </i>
-                </span>
-            </td>
-        </tr>`;
+        code +=
+            `<tr class="row">
+                <td class="col-6 col-s-12">${e.name}</td>
+                <td class="col-6 col-s-12 link-wrapper">
+                    <span class="tooltipLinkWrapper"> <a data-key="${e.key}" class="link link-large" href="//${e.link}" target="_blank">${e.link}</a>
+                    <span class="tooltip">${e.link}</span></span>
+                    <span>
+                        <i class="icon-links copy" data-key="${e.key}">
+                            <span class="tooltip tooltip-copied">Link Copied</span>
+                            <span class="tooltip tooltip-copy">Copy link</span>
+                        </i>
+                        <i class="icon-trash remove" data-key="${e.key}"><span class="tooltip tooltip-remove">Remove link</span></i>
+                    </span>
+                </td>
+             </tr>`;
     });
     TABLE_BODY.innerHTML = code;
     let btnRemove = TABLE_BODY.querySelectorAll(".remove").forEach(e => {
@@ -74,6 +73,9 @@ function upDateLinkList() {
         e.addEventListener("click", copyLink);
     });
 }
+
+
+
 
 // show the link panel
 function showLinkPanel(e) {
@@ -91,17 +93,71 @@ function closePanel() {
     document.documentElement.classList.remove("blockOverlay");
     upDateLinkList();
 }
+//  validation inputs function
+function validate(inputType) {
+    var validation = false;
+    if (inputType === "name") {
+        var value = INPUT_ADD_NAME.value;
+        if (value.length < 3) {
+            toggleClassInput(INPUT_ADD_NAME, false)
+        }
+        else if (value.length > 15) {
+            toggleClassInput(INPUT_ADD_NAME, false)
+        } else {
+            toggleClassInput(INPUT_ADD_NAME, true)
+            validation = true;
+        }
+    }
+    if (inputType === "url") {
+        var value = INPUT_ADD_URL.value;
+        if (!value.startsWith("https://") && !value.startsWith("https://") || value === 0) {
+            toggleClassInput(INPUT_ADD_URL, false)
+        } else {
+            toggleClassInput(INPUT_ADD_URL, true)
+            validation = true;
+        }
+    }
+    return validation
+}
+// function for giving and iungivi
+function toggleClassInput(input, state) {
+    state ? input.parentNode.classList.remove('uncorrect') : input.parentNode.classList.add('uncorrect');
+}
+// function references for eventlisteners on inputs
+var listnerRefX, listnerRefY;
+// starting validation if first checking inputs is uncorrect
+function startValidation(type) {
+    console.log('startvali')
+    if (type === "name") {
+        INPUT_ADD_NAME.addEventListener('input', listnerRefX = function () {
+            validate(type)
+        }, false);
+        INPUT_ADD_NAME.parentNode.classList.add('active')
+    }
+    if (type === "url") {
+        INPUT_ADD_URL.addEventListener('input', listnerRefY = function () {
+            validate(type)
+        }, false);
+        INPUT_ADD_URL.parentNode.classList.add('active')
+        validate("url")
+    }
+}
+// 
 // ADDING OR CHANGNING ELEMENT(LINK)
 function submitLink(e) {
-    e.preventDefault();
+    if (!validate("name") || !validate("url")) {
+        e.preventDefault();
+        if (!INPUT_ADD_NAME.parentNode.classList.contains('active')) startValidation("name")
+        if (!INPUT_ADD_URL.parentNode.classList.contains('active')) startValidation("url")
+        return
+    }
+    INPUT_ADD_NAME.removeEventListener('input', listnerRefX, false);
+    INPUT_ADD_URL.removeEventListener('input', listnerRefY, false);
+    INPUT_ADD_NAME.parentNode.classList.remove('active')
+    INPUT_ADD_URL.parentNode.classList.remove('active')
+    //
     let newName = INPUT_ADD_NAME.value;
     let newUrl = INPUT_ADD_URL.value;
-    if (newName.length < 3 || newName.length > 15)
-        return alert("Name must be longer than 3 letters! And max 15 letters!");
-    if (!newUrl.startsWith("www.") && !newUrl.startsWith("WWW."))
-        return alert(
-            "Add correct website adress, e.g www.site.com. Without https://..."
-        );
     // if its  editing the link
     if (e.target.id === "changeLink") {
         // tutaj zmiana linka
@@ -120,7 +176,6 @@ function submitLink(e) {
         ADD_HEADER.textContent = "ADD URL"
         return;
     }
-    e.preventDefault();
     const newLink = {
         name: newName,
         link: newUrl,
@@ -131,21 +186,21 @@ function submitLink(e) {
     function addNewLinkToEditPanel() {
         let li = document.createElement('li');
         li.innerHTML = `<span data-key="${
-        config.length-1
-    }">${
-        newName
-    }</span><button  data-key="${
-        config.length -1
-    }" class="btnEdit">Edit</button>`
+            config.length - 1
+            }">${
+            newName
+            }</span><button  data-key="${
+            config.length - 1
+            }" class="btnEdit">Edit</button>`
         EDIT_LINK_BODY.appendChild(li);
         li.addEventListener('click', changeFormToEdit)
     }
     addNewLinkToEditPanel();
-    cleanInputs()
+    // cleanInputs()
     BTN_LINK_SUBMIT.querySelector('span').classList.add('active');
     setTimeout(() => {
         BTN_LINK_SUBMIT.querySelector('span').classList.remove('active');
-    }, 300)
+    }, 300);
 }
 // UPDATING EDIT PANEL LIST
 function cleanInputs() {
@@ -160,11 +215,11 @@ function fillEditPanel() {
         let li = document.createElement('li');
         li.innerHTML = `<span data-key="${
             e.key
-        }">${
+            }">${
             e.name
-        }</span><button  data-key="${
+            }</span><button  data-key="${
             e.key
-        }" class="btnEdit">Edit</button>`
+            }" class="btnEdit">Edit</button>`
         fragment.appendChild(li)
     });
     EDIT_LINK_BODY.appendChild(fragment)
@@ -190,7 +245,8 @@ BTN_QUIT_LINK_PANEL.addEventListener("click", closePanel);
 
 
 BTN_SHOW_LINK_PANEL.forEach(e => e.addEventListener("click", showLinkPanel));
-BTN_LINK_SUBMIT.addEventListener("click", submitLink);
+FORM_LINK.addEventListener("click", submitLink);
+
 document.querySelector('.panelWrapper').addEventListener("click", function (e) {
     e.stopPropagation()
 });

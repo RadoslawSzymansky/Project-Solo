@@ -20,7 +20,7 @@
 
 .panelWrapper {
     position: relative;
-    top: -10vh;
+    top: -5vh;
     background-color: #fff;
     color: $grey-light;
     max-width: 800px;
@@ -85,22 +85,58 @@
         border-bottom: 1px solid $grey-light;
         border-top: 1px solid $grey-light;
         padding: 10px;
-
         text-align: center;
-
-        input {
-            margin-bottom: 5px;
+        width: 100%;;
+        .input-row{
+            margin-bottom: 15px;
             margin-right: 10px;
-            color: rgb(68, 68, 68);
-            height: 40px;
+            display: inline-block;
             border: 1px solid $grey-light;
+            position: relative;
+            border-radius: 3px;
+        }
+        input {
+            color: rgb(21, 11, 22);
+            height: 40px;
             padding-left: 5px;
-
+            border: none;
+            outline: none;
             &::placeholder {
                 color: #ccc
             }
         }
-
+       
+        .error-valid{
+            visibility: hidden;
+            position: absolute;
+            width: calc(100% + 4px);
+            bottom:0;
+            font-weight: bold;
+            background-color: #FF0045;
+            color: white;
+            font-size: 12px;
+            padding: 3px;
+            text-align: left;
+            transition: 0.2s;
+            left: -2px;
+        }
+        
+        .input-row{
+            &.active{
+                border: 2px solid #00C184;
+                &.uncorrect{ 
+                    border: 2px solid #FF0045;
+                    .error-valid{
+                        visibility: visible;
+                        transform: translateY(calc(95%));
+                        border-radius: 1px;
+                    }
+                }
+            }
+        }
+        
+        &.active.correct{
+        }
         .btn {
             margin: 0 70px;
             outline: 0;
