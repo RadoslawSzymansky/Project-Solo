@@ -53,7 +53,7 @@ function upDateLinkList() {
             `<tr class="row">
                 <td class="col-6 col-s-12">${e.name}</td>
                 <td class="col-6 col-s-12 link-wrapper">
-                    <span class="tooltipLinkWrapper"> <a data-key="${e.key}" class="link link-large" href="//${e.link}" target="_blank">${e.link}</a>
+                    <span class="tooltipLinkWrapper"> <a data-key="${e.key}" class="link link-large" href="${e.link}" target="_blank">${e.link}</a>
                     <span class="tooltip">${e.link}</span></span>
                     <span>
                         <i class="icon-links copy" data-key="${e.key}">
@@ -93,32 +93,29 @@ function closePanel() {
     document.documentElement.classList.remove("blockOverlay");
     upDateLinkList();
 }
+
+
 //  validation inputs function
-function validate(inputType) {
-    var validation = false;
-    if (inputType === "name") {
-        var value = INPUT_ADD_NAME.value;
-        if (value.length < 3) {
-            toggleClassInput(INPUT_ADD_NAME, false)
-        }
-        else if (value.length > 15) {
-            toggleClassInput(INPUT_ADD_NAME, false)
-        } else {
-            toggleClassInput(INPUT_ADD_NAME, true)
-            validation = true;
+var validate = function (input) {
+    var value = input.value;
+    var type = input.type;
+    let validationCorrect = false;
+    if (type === "url") {
+        if (value.startsWith("https://") && value.startsWith("https://")) {
+            validationCorrect = true
         }
     }
-    if (inputType === "url") {
-        var value = INPUT_ADD_URL.value;
-        if (!value.startsWith("https://") && !value.startsWith("https://") || value === 0) {
-            toggleClassInput(INPUT_ADD_URL, false)
-        } else {
-            toggleClassInput(INPUT_ADD_URL, true)
-            validation = true;
+    if (type === "text") {
+        if (value.length >= 3 && value.length <= 15) {
+            validationCorrect = true;
+            console.log('aah')
         }
     }
-    return validation
+    console.log('validacja na false')
+    toggleClassInput(input, validationCorrect)
+    return validationCorrect;
 }
+
 // function for giving and iungivi
 function toggleClassInput(input, state) {
     state ? input.parentNode.classList.remove('uncorrect') : input.parentNode.classList.add('uncorrect');
@@ -126,31 +123,32 @@ function toggleClassInput(input, state) {
 // function references for eventlisteners on inputs
 var listnerRefX, listnerRefY;
 // starting validation if first checking inputs is uncorrect
-function startValidation(type) {
-    console.log('startvali')
-    if (type === "name") {
-        INPUT_ADD_NAME.addEventListener('input', listnerRefX = function () {
-            validate(type)
+function startValidation(input) {
+    console.log('startvalidation', input)
+    type = input.type;
+    if (type === "text") {
+        input.addEventListener('input', listnerRefX = function () {
+            validate(input)
         }, false);
-        INPUT_ADD_NAME.parentNode.classList.add('active')
     }
     if (type === "url") {
-        INPUT_ADD_URL.addEventListener('input', listnerRefY = function () {
-            validate(type)
+        input.addEventListener('input', listnerRefY = function () {
+            validate(input)
         }, false);
-        INPUT_ADD_URL.parentNode.classList.add('active')
-        validate("url")
+        validate(input)
     }
+    input.parentNode.classList.add('active')
 }
 // 
 // ADDING OR CHANGNING ELEMENT(LINK)
 function submitLink(e) {
-    if (!validate("name") || !validate("url")) {
+    if (!validate(INPUT_ADD_NAME) || !validate(INPUT_ADD_URL)) {
         e.preventDefault();
-        if (!INPUT_ADD_NAME.parentNode.classList.contains('active')) startValidation("name")
-        if (!INPUT_ADD_URL.parentNode.classList.contains('active')) startValidation("url")
+        if (!INPUT_ADD_NAME.parentNode.classList.contains('active')) startValidation(INPUT_ADD_NAME)
+        if (!INPUT_ADD_URL.parentNode.classList.contains('active')) startValidation(INPUT_ADD_URL)
         return
     }
+    e.preventDefault();
     INPUT_ADD_NAME.removeEventListener('input', listnerRefX, false);
     INPUT_ADD_URL.removeEventListener('input', listnerRefY, false);
     INPUT_ADD_NAME.parentNode.classList.remove('active')
@@ -196,7 +194,7 @@ function submitLink(e) {
         li.addEventListener('click', changeFormToEdit)
     }
     addNewLinkToEditPanel();
-    // cleanInputs()
+    cleanInputs()
     BTN_LINK_SUBMIT.querySelector('span').classList.add('active');
     setTimeout(() => {
         BTN_LINK_SUBMIT.querySelector('span').classList.remove('active');
