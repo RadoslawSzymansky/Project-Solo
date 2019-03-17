@@ -73,10 +73,6 @@ function upDateLinkList() {
         e.addEventListener("click", copyLink);
     });
 }
-
-
-
-
 // show the link panel
 function showLinkPanel(e) {
     e.stopPropagation();
@@ -85,7 +81,7 @@ function showLinkPanel(e) {
     fillEditPanel();
     document.querySelector(".blockOverlay").addEventListener("click", closePanel);
 }
-``;
+
 //
 function closePanel() {
     document.querySelector(".blockOverlay").removeEventListener("click", closePanel);
@@ -108,10 +104,9 @@ var validate = function (input) {
     if (type === "text") {
         if (value.length >= 3 && value.length <= 15) {
             validationCorrect = true;
-            console.log('aah')
         }
     }
-    console.log('validacja na false')
+    /// tu kolejne if dla innych typów inputow ew. dla specjalnych można dać id i wtedy sprawdzać
     toggleClassInput(input, validationCorrect)
     return validationCorrect;
 }
@@ -124,7 +119,6 @@ function toggleClassInput(input, state) {
 var listnerRefX, listnerRefY;
 // starting validation if first checking inputs is uncorrect
 function startValidation(input) {
-    console.log('startvalidation', input)
     type = input.type;
     if (type === "text") {
         input.addEventListener('input', listnerRefX = function () {
@@ -140,6 +134,7 @@ function startValidation(input) {
     input.parentNode.classList.add('active')
 }
 // 
+
 // ADDING OR CHANGNING ELEMENT(LINK)
 function submitLink(e) {
     if (!validate(INPUT_ADD_NAME) || !validate(INPUT_ADD_URL)) {
