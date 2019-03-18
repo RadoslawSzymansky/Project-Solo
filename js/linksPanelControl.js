@@ -91,68 +91,78 @@ function closePanel() {
 }
 
 
-//  validation inputs function
-var validate = function (input) {
-    var value = input.value;
-    var type = input.type;
-    let validationCorrect = false;
-    if (type === "url") {
-        if (value.startsWith("https://") && value.startsWith("https://")) {
-            validationCorrect = true
-        }
-    }
-    if (type === "text") {
-        if (value.length >= 3 && value.length <= 15) {
-            validationCorrect = true;
-        }
-    }
-    /// tu kolejne if dla innych typów inputow ew. dla specjalnych można dać id i wtedy sprawdzać
-    toggleClassInput(input, validationCorrect)
-    return validationCorrect;
-}
-
 // function for giving and iungivi
 function toggleClassInput(input, state) {
     state ? input.parentNode.classList.remove('uncorrect') : input.parentNode.classList.add('uncorrect');
 }
-// function references for eventlisteners on inputs
-var listnerRefX, listnerRefY;
-// starting validation if first checking inputs is uncorrect
-function startValidation(input) {
-    type = input.type;
-    if (type === "text") {
-        input.addEventListener('input', listnerRefX = function () {
-            validate(input)
-        }, false);
-    }
-    if (type === "url") {
-        input.addEventListener('input', listnerRefY = function () {
-            validate(input)
-        }, false);
-        validate(input)
-    }
-    input.parentNode.classList.add('active')
+
+var refKeeper = {
+    fn: [],
+    btn: []
 }
-// 
+function initValidation() {
+    var isDone = false;
+    var succesCounter = 0;
+    (function (arguments) {
+        for (let i = 0; i < arguments.length; i++) {
+            if (!arguments[i].parentNode.classList.contains('active') && arguments[i]) {
+                // tu uruchamiać eventy;
+                validation(arguments[i])
+                refKeeper["btn"][i] = arguments[i];
+                var input = refKeeper["btn"][i]
+                arguments[i].parentNode.classList.add('active');
+                arguments[i].addEventListener('input', refKeeper["fn"][i] = function () {
+                    validation(refKeeper["btn"][i])
+                }, false)
+            }
+            if (validation(arguments[i])) {
+                ++succesCounter;
+            }
+            if (succesCounter === arguments.length) isDone = true
+        }
+    })(arguments)
+    function validation(input) {
+        var value = input.value;
+        var type = input.type;
+        let validationCorrect = false;
+        if (type === "url") {
+            if (value.startsWith("https://") && value.startsWith("https://")) {
+                validationCorrect = true
+            }
+        }
+        if (type === "text") {
+            if (value.length >= 3 && value.length <= 15) {
+                validationCorrect = true;
+            }
+        }
+        /// tu kolejne if dla innych typów inputow ew. dla specjalnych można dać id i wtedy sprawdzać np  type emial lub id pesel
+        toggleClassInput(input, validationCorrect)
+        return validationCorrect;
+    }
+    if (isDone) {
+        for (var i = 0; i < arguments.length; i++) {
+            arguments[i].parentNode.classList.remove('active');
+            arguments[i].removeEventListener('input', refKeeper["fn"][i], false);
+        }
+    }
+    return isDone;
+}
 
 // ADDING OR CHANGNING ELEMENT(LINK)
 function submitLink(e) {
-    if (!validate(INPUT_ADD_NAME) || !validate(INPUT_ADD_URL)) {
-        e.preventDefault();
-        if (!INPUT_ADD_NAME.parentNode.classList.contains('active')) startValidation(INPUT_ADD_NAME)
-        if (!INPUT_ADD_URL.parentNode.classList.contains('active')) startValidation(INPUT_ADD_URL)
+
+    e.preventDefault();
+
+    if (!initValidation(INPUT_ADD_NAME, INPUT_ADD_URL)) {
         return
     }
-    e.preventDefault();
-    INPUT_ADD_NAME.removeEventListener('input', listnerRefX, false);
-    INPUT_ADD_URL.removeEventListener('input', listnerRefY, false);
-    INPUT_ADD_NAME.parentNode.classList.remove('active')
-    INPUT_ADD_URL.parentNode.classList.remove('active')
+
     //
     let newName = INPUT_ADD_NAME.value;
     let newUrl = INPUT_ADD_URL.value;
     // if its  editing the link
     if (e.target.id === "changeLink") {
+
         // tutaj zmiana linka
         let index = currentEditElementIndex;
         config[index].name = newName;
