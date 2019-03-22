@@ -154,51 +154,50 @@
                 <!-- /// section  over /// STATISTICS -->
                 <section class="row table-section">
                     <div class="col-12 col-s-12">
-                        <button class="btnShowLinkPanel btn btn-orange-light">
+                        <button class="btnShowLinkPanel btn btn-orange-light modal">
                             + add new
                         </button>
                         <table class="table">
                             <tbody class="tableBody"></tbody>
                         </table>
-                        <button class="btnShowLinkPanel btn btn-orange-light">
+                        <button class="btnShowLinkPanel btn btn-orange-light modal">
                             + add new
                         </button>
                     </div>
-                    <!-- ///////////////// -->
-                    <div class="popUpLinks ">
-                        <div class="panelWrapper">
-                            <button class="quitLinkPanel">
-                                <span>|</span><span>|</span>
-                            </button>
-                            <h2 class="addHeader">Add url</h2>
-                            <!--  -->
-                            <form class="addPanelForm" method="POST" action="https://formspree.io/radek199@gmail.com">
-                                <div class="input-row">
-                                    <input type="text" placeholder="Name:" class="linkName" name="name" />
-                                    <div class="error-valid">Name length: min 3 / max 15</div>
-                                </div>
-                                <div class="input-row">
-                                    <input type="url" placeholder="www.newsite.com" class="linkUrl" name="adress" />
-                                    <div class="error-valid">Adress url begins with https://..</div>
-
-                                </div>
-                                <button type="submit" class="btn btn-orange-light addReadyLink toolParent">
-                                    Add<span class="tooltip">Link added!</span>
-                                </button>
-                            </form>
-
-                            <!--  -->
-                            <h2 class="editHeader">
-                                Edit links:
-                                <span class="popUpEdit">Link edited!</span>
-                            </h2>
-                            <ul class="editLinkUl">
-                                <!-- <li><span>Name</span><button class="btnEdit">Edit</button></li> -->
-                            </ul>
-                        </div>
-                    </div>
                 </section>
             </main>
+            <div id="overlay" class="overlay popUpLinks">
+                <div class="panelWrapper modal ">
+                    <button class="quitLinkPanel js--close-modal">
+                        <span>|</span><span>|</span>
+                    </button>
+                    <h2 class="addHeader">Add url</h2>
+                    <!--  -->
+                    <form class="addPanelForm" method="POST" action="https://formspree.io/radek199@gmail.com">
+                        <div class="input-row">
+                            <input type="text" placeholder="Name:" class="linkName" name="name" />
+                            <div class="error-valid">Name length: min 3 / max 15</div>
+                        </div>
+                        <div class="input-row">
+                            <input type="url" placeholder="www.newsite.com" class="linkUrl" name="adress" />
+                            <div class="error-valid">Adress url begins with https://..</div>
+
+                        </div>
+                        <button type="submit" class="btn btn-orange-light addReadyLink toolParent">
+                            Add<span class="tooltip">Link added!</span>
+                        </button>
+                    </form>
+
+                    <!--  -->
+                    <h2 class="editHeader">
+                        Edit links:
+                        <span class="popUpEdit">Link edited!</span>
+                    </h2>
+                    <ul class="editLinkUl">
+                        <!-- <li><span>Name</span><button class="btnEdit">Edit</button></li> -->
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <!-- --------- SCRIPTS ----------- -->
@@ -206,6 +205,7 @@
     <script src="node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="js/sidebarToggler.js"></script>
     <script src="js/myChart.js"></script>
+    <script src="js/modals.js"></script>
     <script src="js/linksConfig.js"></script>
     <script src="js/linksPanelControl.js"></script>
 </body>

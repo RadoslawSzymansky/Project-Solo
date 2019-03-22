@@ -1,20 +1,14 @@
 const TABLE_BODY = document.querySelector(".tableBody");
-const BTN_SHOW_LINK_PANEL = document.querySelectorAll(".btnShowLinkPanel");
-const POP_UP_LINK = document.querySelector(".popUpLinks");
-const BTN_QUIT_LINK_PANEL = document.querySelector(".quitLinkPanel");
 const ADD_HEADER = document.querySelector('.addHeader');
-
 // adding DOM ELEMENTS
 const BTN_LINK_SUBMIT = document.querySelector(".addReadyLink");
 const FORM_LINK = document.querySelector(".addReadyLink");
-
 const INPUT_ADD_NAME = document.querySelector(".linkName");
 const INPUT_ADD_URL = document.querySelector(".linkUrl");
 // edit link panel DOM ELEMENST
 const EDIT_LINK_BODY = document.querySelector(".editLinkUl");
 //  start values
 let currentEditElementIndex = null;
-
 // function for copying links
 const copyLink = e => {
     const el = document.createElement("textarea");
@@ -73,29 +67,10 @@ function upDateLinkList() {
         e.addEventListener("click", copyLink);
     });
 }
-// show the link panel
-function showLinkPanel(e) {
-    e.stopPropagation();
-    POP_UP_LINK.classList.add("showLinksPanel");
-    document.documentElement.classList.add("blockOverlay");
-    fillEditPanel();
-    document.querySelector(".blockOverlay").addEventListener("click", closePanel);
-}
-
-//
-function closePanel() {
-    document.querySelector(".blockOverlay").removeEventListener("click", closePanel);
-    POP_UP_LINK.classList.remove("showLinksPanel");
-    document.documentElement.classList.remove("blockOverlay");
-    upDateLinkList();
-}
-
-
 // function for giving and iungivi
 function toggleClassInput(input, state) {
     state ? input.parentNode.classList.remove('uncorrect') : input.parentNode.classList.add('uncorrect');
 }
-
 var refKeeper = {
     fn: [],
     btn: []
@@ -147,16 +122,12 @@ function initValidation() {
     }
     return isDone;
 }
-
 // ADDING OR CHANGNING ELEMENT(LINK)
 function submitLink(e) {
-
     e.preventDefault();
-
     if (!initValidation(INPUT_ADD_NAME, INPUT_ADD_URL)) {
         return
     }
-
     //
     let newName = INPUT_ADD_NAME.value;
     let newUrl = INPUT_ADD_URL.value;
@@ -210,7 +181,6 @@ function cleanInputs() {
     INPUT_ADD_NAME.value = "";
     INPUT_ADD_URL.value = "";
 }
-
 function fillEditPanel() {
     EDIT_LINK_BODY.innerHTML = "";
     let fragment = document.createDocumentFragment();
@@ -230,7 +200,6 @@ function fillEditPanel() {
         e.addEventListener("click", changeFormToEdit)
     )
 };
-
 // FUNCTION FOR  showing eDITING LINK panel //
 const changeFormToEdit = e => {
     let index = e.target.dataset.key;
@@ -241,20 +210,12 @@ const changeFormToEdit = e => {
     BTN_LINK_SUBMIT.setAttribute('id', 'changeLink');
     ADD_HEADER.innerHTML = `Currently chaning: <span style="color: #56819f;">${config[index].name}</span>`
 };
-
 // events
-// --- hide link panel and unlock the body
-BTN_QUIT_LINK_PANEL.addEventListener("click", closePanel);
-
-
-BTN_SHOW_LINK_PANEL.forEach(e => e.addEventListener("click", showLinkPanel));
+document.querySelectorAll(".btnShowLinkPanel").forEach(e => e.addEventListener("click", function () {
+    openModal(".panelWrapper");
+    fillEditPanel();
+}));
 FORM_LINK.addEventListener("click", submitLink);
-
-document.querySelector('.panelWrapper').addEventListener("click", function (e) {
-    e.stopPropagation()
-});
-
-//
 // first creating of list
 upDateLinkList();
-//
+
