@@ -10,7 +10,7 @@
         "build:clearcss": "rm -rf css/*.css && touch css/style.css",
         "build:prefix": "postcss css/style.css --use=autoprefixer --map=false --output=css/style.css",
         "build:testhtml": "nu-html-checker *.html",
-        "build:scss": "node-sass sass/style.scss -o css",
+        "build:scss": "node-sass sass/style.scss -o css ",
         "init:install": "npm install",
         "init:dirs": "mkdir -p sass css vendor images js",
         "init:files": "touch README.md index.html sass/style.scss js/script.js",

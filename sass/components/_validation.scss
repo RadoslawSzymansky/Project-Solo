@@ -1,0 +1,21 @@
+ .input-row{
+            margin-bottom: 15px;
+            margin-right: 10px;
+            display: inline-block;
+            border: 1px solid $grey-light;
+            position: relative;
+            border-radius: 3px;
+            position: relative;
+            .validation-hidden {
+                display: none;
+            };
+            .validation-active {
+                display: block;
+                color: #ff0000;
+                position: absolute;
+                bottom: -20px;
+           }
+        }
+      
+        
+    

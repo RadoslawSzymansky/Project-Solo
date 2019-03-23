@@ -173,14 +173,17 @@
                     </button>
                     <h2 class="addHeader">Add url</h2>
                     <!--  -->
-                    <form class="addPanelForm" method="POST" action="https://formspree.io/radek199@gmail.com">
+                    <form id="form-links" class="addPanelForm" method="POST"
+                        action="https://formspree.io/radek199@gmail.com">
                         <div class="input-row">
-                            <input type="text" placeholder="Name:" class="linkName" name="name" />
-                            <div class="error-valid">Name length: min 3 / max 15</div>
+                            <input type="text" data-validation="required minLength5 maxLength20" placeholder="Name:"
+                                class="linkName" name="name" />
+                            <!-- <div class="error-valid">Name length: min 3 / max 15</div> -->
                         </div>
                         <div class="input-row">
-                            <input type="url" placeholder="www.newsite.com" class="linkUrl" name="adress" />
-                            <div class="error-valid">Adress url begins with https://..</div>
+                            <input type="url" data-validation="required url" placeholder="www.newsite.com"
+                                class="linkUrl" name="adress" />
+                            <!-- <div class="error-valid">Adress url begins with https://..</div> -->
 
                         </div>
                         <button type="submit" class="btn btn-orange-light addReadyLink toolParent">
@@ -205,6 +208,7 @@
     <script src="node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="js/sidebarToggler.js"></script>
     <script src="js/myChart.js"></script>
+    <script src="js/validation.js"></script>
     <script src="js/modals.js"></script>
     <script src="js/linksConfig.js"></script>
     <script src="js/linksPanelControl.js"></script>
