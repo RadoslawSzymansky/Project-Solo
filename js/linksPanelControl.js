@@ -67,70 +67,10 @@ function upDateLinkList() {
         e.addEventListener("click", copyLink);
     });
 }
-// function for giving and iungivi
-// function toggleClassInput(input, state) {
-//     state ? input.parentNode.classList.remove('uncorrect') : input.parentNode.classList.add('uncorrect');
-// }
-// var refKeeper = {
-//     fn: [],
-//     btn: []
-// }
-// function initValidation() {
-//     var isDone = false;
-//     var succesCounter = 0;
-//     (function (arguments) {
-//         for (let i = 0; i < arguments.length; i++) {
-//             if (!arguments[i].parentNode.classList.contains('active') && arguments[i]) {
-//                 // tu uruchamiać eventy;
-//                 validation(arguments[i])
-//                 refKeeper["btn"][i] = arguments[i];
-//                 var input = refKeeper["btn"][i]
-//                 arguments[i].parentNode.classList.add('active');
-//                 arguments[i].addEventListener('input', refKeeper["fn"][i] = function () {
-//                     validation(refKeeper["btn"][i])
-//                 }, false)
-//             }
-//             if (validation(arguments[i])) {
-//                 ++succesCounter;
-//             }
-//             if (succesCounter === arguments.length) isDone = true
-//         }
-//     })(arguments)
-//     function validation(input) {
-//         var value = input.value;
-//         var type = input.type;
-//         let validationCorrect = false;
-//         if (type === "url") {
-//             if (value.startsWith("https://") && value.startsWith("https://")) {
-//                 validationCorrect = true
-//             }
-//         }
-//         if (type === "text") {
-//             if (value.length >= 3 && value.length <= 15) {
-//                 validationCorrect = true;
-//             }
-//         }
-//         /// tu kolejne if dla innych typów inputow ew. dla specjalnych można dać id i wtedy sprawdzać np  type emial lub id pesel
-//         toggleClassInput(input, validationCorrect)
-//         return validationCorrect;
-//     }
-//     if (isDone) {
-//         for (var i = 0; i < arguments.length; i++) {
-//             arguments[i].parentNode.classList.remove('active');
-//             arguments[i].removeEventListener('input', refKeeper["fn"][i], false);
-//         }
-//     }
-//     return isDone;
-// }
+
 // ADDING OR CHANGNING ELEMENT(LINK)
 function submitLink(e) {
     e.preventDefault();
-    // if (!initValidation(INPUT_ADD_NAME, INPUT_ADD_URL)) {
-    //     return
-    // }
-    // // REST DOWN :
-    // if()
-
     let newName = INPUT_ADD_NAME.value;
     let newUrl = INPUT_ADD_URL.value;
     // if its  editing the link
