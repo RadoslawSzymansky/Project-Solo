@@ -24,7 +24,7 @@
     "author": "Radek",
     "license": "UNLICENSED",
     "dependencies": {
-        "chart.js": "^2.7.3"
+        "chart.js": "^2.9.4"
     },
     "devDependencies": {
         "autoprefixer": "^9.4.8",
